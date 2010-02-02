@@ -9,7 +9,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.homepage           = 'http://rdf.rubyforge.org/'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'RDF/JSON support for RDF.rb.'
-  gem.description        = 'RDF.rb plugin for parsing/serializing RDF/JSON.'
+  gem.description        = 'RDF.rb plugin for parsing/serializing RDF/JSON data.'
   gem.rubyforge_project  = 'rdf'
 
   gem.authors            = ['Arto Bendiken']
