@@ -8,8 +8,8 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.name               = 'rdf-json'
   gem.homepage           = 'http://rdf.rubyforge.org/'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
-  gem.summary            = 'RDF/JSON parsing/serialization support for RDF.rb.'
-  gem.description        = 'RDF.rb plugin providing support for RDF/JSON parsing/serialization.'
+  gem.summary            = 'RDF/JSON support for RDF.rb.'
+  gem.description        = 'RDF.rb plugin for parsing/serializing RDF/JSON.'
   gem.rubyforge_project  = 'rdf'
 
   gem.authors            = ['Arto Bendiken']
@@ -27,9 +27,9 @@ GEMSPEC = Gem::Specification.new do |gem|
 
   gem.required_ruby_version      = '>= 1.8.2'
   gem.requirements               = []
-  gem.add_development_dependency 'rspec', '>= 1.2.9'
-  gem.add_development_dependency 'yard' , '>= 0.5.2'
-  gem.add_runtime_dependency     'rdf',   '>= 0.0.6'
-  gem.add_runtime_dependency     'json',  '>= 1.2.0'
+  gem.add_development_dependency 'rspec',     '>= 1.2.9'
+  gem.add_development_dependency 'yard' ,     '>= 0.5.2'
+  gem.add_runtime_dependency     'rdf',       '>= 0.0.9'
+  gem.add_runtime_dependency     'json_pure', '>= 1.2.0'
   gem.post_install_message       = nil
 end
