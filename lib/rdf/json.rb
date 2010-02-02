@@ -34,9 +34,10 @@ module RDF
   #
   # @author [Arto Bendiken](http://ar.to/)
   module JSON
+    require 'rdf/json/extensions'
     require 'rdf/json/format'
     autoload :Reader,  'rdf/json/reader'
     autoload :Writer,  'rdf/json/writer'
     autoload :VERSION, 'rdf/json/version'
-  end
-end
+  end # module JSON
+end # module RDF
