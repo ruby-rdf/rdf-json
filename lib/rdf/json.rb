@@ -7,15 +7,6 @@ module RDF
   # @example Requiring the `RDF::JSON` module
   #   require 'rdf/json'
   #
-  # @example Serializing RDF values into RDF/JSON strings
-  #   RDF::Node.new('foobar').to_json
-  #   RDF::URI.new("http://rdf.rubyforge.org/").to_json
-  #   RDF::Literal.new("Hello, world!").to_json
-  #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_json
-  #   RDF::Literal.new(3.1415).to_json
-  #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_json
-  #   RDF::Statement.new(s, p, o).to_json
-  #
   # @example Parsing RDF statements from an RDF/JSON file
   #   RDF::JSON::Reader.open("spec/data/test.json") do |reader|
   #     reader.each_statement do |statement|
@@ -29,6 +20,15 @@ module RDF
   #       writer << statement
   #     end
   #   end
+  #
+  # @example Serializing RDF values into RDF/JSON strings
+  #   RDF::Node.new('foobar').to_json
+  #   RDF::URI.new("http://rdf.rubyforge.org/").to_json
+  #   RDF::Literal.new("Hello, world!").to_json
+  #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_json
+  #   RDF::Literal.new(3.1415).to_json
+  #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_json
+  #   RDF::Statement.new(s, p, o).to_json
   #
   # @see http://rdf.rubyforge.org/
   # @see http://n2.talis.com/wiki/RDF_JSON_Specification
