@@ -1,6 +1,12 @@
 module RDF::JSON
   ##
   # RDF/JSON extensions for RDF.rb classes.
+  #
+  # Classes are extended with two new instance methods:
+  #
+  # * `#to_rdf_json` returns the RDF/JSON representation as a `Hash`.
+  # * `#to_json` returns the serialized RDF/JSON representation as a string.
+  #
   module Extensions
     ##
     # RDF/JSON extensions for `RDF::Value`.

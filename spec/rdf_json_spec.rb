@@ -24,19 +24,19 @@ describe RDF::JSON::Extensions do
 
   context "plain literals" do
     it "should have an RDF/JSON representation" do
-      value = RDF::Literal.new("foobar")
+      value = RDF::Literal.new("Hello, world!")
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
-      value.to_rdf_json.should == {:type => :literal, :value => "foobar"}
+      value.to_rdf_json.should == {:type => :literal, :value => "Hello, world!"}
     end
   end
 
   context "language-tagged literals" do
     it "should have an RDF/JSON representation" do
-      value = RDF::Literal.new("foobar", :language => 'en-US')
+      value = RDF::Literal.new("Hello, world!", :language => 'en-US')
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
-      value.to_rdf_json.should == {:type => :literal, :value => "foobar", :lang => 'en-US'}
+      value.to_rdf_json.should == {:type => :literal, :value => "Hello, world!", :lang => 'en-US'}
     end
   end
 
