@@ -1,4 +1,4 @@
-module RDF module JSON
+module RDF::JSON
   ##
   # RDF/JSON serializer.
   #
@@ -8,4 +8,4 @@ module RDF module JSON
 
     # TODO
   end
-end end
+end
