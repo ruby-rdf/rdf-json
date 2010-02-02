@@ -27,6 +27,37 @@ module RDF::JSON
   class Writer < RDF::Writer
     format RDF::JSON::Format
 
-    # TODO
+    ##
+    # Returns the RDF/JSON representation for a blank node.
+    #
+    # @param  [RDF::Node] value
+    # @param  [Hash{Symbol => Object}] options
+    # @return [String]
+    def format_node(value, options = {})
+      value.to_json
+    end
+
+    ##
+    # Returns the RDF/JSON representation for a URI reference.
+    #
+    # @param  [RDF::URI] value
+    # @param  [Hash{Symbol => Object}] options
+    # @return [String]
+    def format_uri(value, options = {})
+      value.to_json
+    end
+
+    ##
+    # Returns the RDF/JSON representation for a literal.
+    #
+    # @param  [RDF::Literal, String, #to_s] value
+    # @param  [Hash{Symbol => Object}] options
+    # @return [String]
+    def format_literal(value, options = {})
+      case value
+        when RDF::Literal then value.to_json
+        else RDF::Literal.new(value).to_json
+      end
+    end
   end
 end
