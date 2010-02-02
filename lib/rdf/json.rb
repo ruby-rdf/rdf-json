@@ -29,28 +29,6 @@ module RDF
   # @example Requiring the `RDF::JSON` module
   #   require 'rdf/json'
   #
-  # @example Serializing blank nodes into RDF/JSON
-  #   RDF::Node.new(id).to_json
-  #
-  # @example Serializing URI references into RDF/JSON
-  #   RDF::URI.new("http://rdf.rubyforge.org/").to_json
-  #
-  # @example Serializing plain literals into RDF/JSON
-  #   RDF::Literal.new("Hello, world!").to_json
-  #
-  # @example Serializing language-tagged literals into RDF/JSON
-  #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_json
-  #
-  # @example Serializing datatyped literals into RDF/JSON
-  #   RDF::Literal.new(3.1415).to_json
-  #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_json
-  #
-  # @example Serializing statements into RDF/JSON
-  #   RDF::Statement.new(s, p, o).to_json
-  #
-  # @example Serializing enumerables into RDF/JSON
-  #   [RDF::Statement.new(s, p, o)].extend(RDF::Enumerable).to_json
-  #
   # @see http://rdf.rubyforge.org/
   # @see http://n2.talis.com/wiki/RDF_JSON_Specification
   # @see http://en.wikipedia.org/wiki/JSON
