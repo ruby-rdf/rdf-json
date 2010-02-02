@@ -28,7 +28,34 @@ module RDF::JSON
     format RDF::JSON::Format
 
     ##
-    # Returns the RDF/JSON representation for a blank node.
+    # Stores the RDF/JSON representation of a triple.
+    #
+    # @param  [RDF::Resource] subject
+    # @param  [RDF::URI]      predicate
+    # @param  [RDF::Value]    object
+    # @return [void]
+    # @see    #write_epilogue
+    def write_triple(subject, predicate, object)
+      s = subject.to_s
+      p = predicate.to_s
+      o = object.is_a?(RDF::Value) ? object : RDF::Literal.new(object)
+      @json       ||= {}
+      @json[s]    ||= {}
+      @json[s][p] ||= []
+      @json[s][p] << o.to_rdf_json
+    end
+
+    ##
+    # Outputs the RDF/JSON representation of all stored triples.
+    #
+    # @return [void]
+    # @see    #write_triple
+    def write_epilogue
+      puts @json.to_json
+    end
+
+    ##
+    # Returns the RDF/JSON representation of a blank node.
     #
     # @param  [RDF::Node] value
     # @param  [Hash{Symbol => Object}] options
@@ -38,7 +65,7 @@ module RDF::JSON
     end
 
     ##
-    # Returns the RDF/JSON representation for a URI reference.
+    # Returns the RDF/JSON representation of a URI reference.
     #
     # @param  [RDF::URI] value
     # @param  [Hash{Symbol => Object}] options
@@ -48,7 +75,7 @@ module RDF::JSON
     end
 
     ##
-    # Returns the RDF/JSON representation for a literal.
+    # Returns the RDF/JSON representation of a literal.
     #
     # @param  [RDF::Literal, String, #to_s] value
     # @param  [Hash{Symbol => Object}] options
