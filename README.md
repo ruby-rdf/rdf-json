@@ -1,19 +1,19 @@
-RDF::JSON: RDF/JSON Support for RDF.rb
-======================================
+RDF/JSON Support for RDF.rb
+===========================
 
-This is an [RDF.rb](http://rdf.rubyforge.org/) plugin that adds support for
-parsing/serializing the RDF/JSON serialization format.
+This is an [RDF.rb][] plugin that adds support for parsing/serializing the
+[RDF/JSON][] serialization format.
 
 * <http://github.com/bendiken/rdf-json>
-
-### About RDF/JSON
-
-* <http://n2.talis.com/wiki/RDF_JSON_Specification>
 
 Documentation
 -------------
 
 * {RDF::JSON}
+  * {RDF::JSON::Extensions}
+  * {RDF::JSON::Format}
+  * {RDF::JSON::Reader}
+  * {RDF::JSON::Writer}
 
 Dependencies
 ------------
@@ -51,3 +51,6 @@ License
 
 `RDF::JSON` is free and unencumbered public domain software. For more
 information, see <http://unlicense.org/> or the accompanying UNLICENSE file.
+
+[RDF.rb]:   http://rdf.rubyforge.org/
+[RDF/JSON]: http://n2.talis.com/wiki/RDF_JSON_Specification

@@ -29,5 +29,5 @@ module RDF::JSON
     format RDF::JSON::Format
 
     # TODO
-  end
-end
+  end # class Reader
+end # module RDF::JSON

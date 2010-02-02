@@ -1,32 +1,33 @@
 module RDF::JSON
   ##
-  # RDF/JSON extensions for RDF.rb core classes and mixins.
+  # RDF/JSON extensions for [RDF.rb](http://rdf.rubyforge.org/) core classes
+  # and mixins.
   #
   # Classes are extended with two new instance methods:
   #
   # * `#to_rdf_json` returns the RDF/JSON representation as a `Hash` object.
   # * `#to_json` returns the serialized RDF/JSON representation as a string.
   #
-  # @example Serializing blank nodes into RDF/JSON
+  # @example Serializing blank nodes into RDF/JSON format
   #   RDF::Node.new(id).to_json
   #
-  # @example Serializing URI references into RDF/JSON
+  # @example Serializing URI references into RDF/JSON format
   #   RDF::URI.new("http://rdf.rubyforge.org/").to_json
   #
-  # @example Serializing plain literals into RDF/JSON
+  # @example Serializing plain literals into RDF/JSON format
   #   RDF::Literal.new("Hello, world!").to_json
   #
-  # @example Serializing language-tagged literals into RDF/JSON
+  # @example Serializing language-tagged literals into RDF/JSON format
   #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_json
   #
-  # @example Serializing datatyped literals into RDF/JSON
+  # @example Serializing datatyped literals into RDF/JSON format
   #   RDF::Literal.new(3.1415).to_json
   #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_json
   #
-  # @example Serializing statements into RDF/JSON
+  # @example Serializing statements into RDF/JSON format
   #   RDF::Statement.new(s, p, o).to_json
   #
-  # @example Serializing enumerables into RDF/JSON
+  # @example Serializing enumerables into RDF/JSON format
   #   [RDF::Statement.new(s, p, o)].extend(RDF::Enumerable).to_json
   #
   module Extensions
