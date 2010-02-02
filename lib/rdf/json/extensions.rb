@@ -66,12 +66,38 @@ module RDF::JSON
       #
       # @return [Hash]
       def to_rdf_json
-        if object.is_a?(RDF::Value)
-          {subject.to_s => {predicate.to_s => [object.to_rdf_json]}}
-        else
-          # FIXME: improve the RDF::Statement constructor in RDF.rb 0.1.0
-          {subject.to_s => {predicate.to_s => [RDF::Literal.new(object).to_rdf_json]}}
+        # FIXME: improve the RDF::Statement constructor in RDF.rb 0.1.0
+        s, p, o = subject.to_s, predicate.to_s, object.is_a?(RDF::Value) ? object : RDF::Literal.new(object)
+        {s => {p => [o.to_rdf_json]}}
+      end
+    end
+
+    ##
+    # RDF/JSON extensions for `RDF::Enumerable`.
+    module Enumerable
+      ##
+      # Returns the serialized RDF/JSON representation of this object.
+      #
+      # @return [String]
+      def to_json
+        to_rdf_json.to_json
+      end
+
+      ##
+      # Returns the RDF/JSON representation of this object.
+      #
+      # @return [Hash]
+      def to_rdf_json
+        json = {}
+        each_statement do |statement|
+          s = statement.subject.to_s
+          p = statement.predicate.to_s
+          o = statement.object.is_a?(RDF::Value) ? statement.object : RDF::Literal.new(statement.object)
+          json[s]    ||= {}
+          json[s][p] ||= []
+          json[s][p] << o.to_rdf_json
         end
+        json
       end
     end
   end # module Extensions

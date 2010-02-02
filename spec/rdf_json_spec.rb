@@ -51,10 +51,21 @@ describe RDF::JSON::Extensions do
 
   context "statements" do
     it "should have an RDF/JSON representation" do
-      value = RDF::Statement.new(RDF::URI.new("http://rdf.rubyforge.org/"), RDF::DC.title, "RDF.rb")
-      value.should respond_to(:to_json, :to_rdf_json)
-      value.to_rdf_json.should be_a(Hash)
-      value.to_rdf_json.should == {"http://rdf.rubyforge.org/" => {RDF::DC.title.to_s => [{:type => :literal, :value => "RDF.rb"}]}}
+      statement = RDF::Statement.new(RDF::URI.new("http://rdf.rubyforge.org/"), RDF::DC.title, "RDF.rb")
+      statement.should respond_to(:to_json, :to_rdf_json)
+      statement.to_rdf_json.should be_a(Hash)
+      statement.to_rdf_json.should == {"http://rdf.rubyforge.org/" => {RDF::DC.title.to_s => [{:type => :literal, :value => "RDF.rb"}]}}
+    end
+  end
+
+  context "enumerables" do
+    it "should have an RDF/JSON representation" do
+      statement  = RDF::Statement.new(RDF::URI.new("http://rdf.rubyforge.org/"), RDF::DC.title, "RDF.rb")
+      enumerable = [statement].extend(RDF::Enumerable)
+      enumerable.should respond_to(:to_json, :to_rdf_json)
+      enumerable.to_rdf_json.should be_a(Hash)
+      enumerable.to_rdf_json.should == statement.to_rdf_json
+      enumerable.to_json.should == statement.to_json
     end
   end
 end
