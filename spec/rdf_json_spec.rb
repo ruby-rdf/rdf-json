@@ -7,9 +7,10 @@ end
 describe RDF::JSON::Extensions do
   context "blank nodes" do
     it "should have an RDF/JSON representation" do
-      value = RDF::Node.new
+      value = RDF::Node.new('id')
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
+      value.to_rdf_json.should == {:type => :bnode, :value => "_:id" }
     end
   end
 
