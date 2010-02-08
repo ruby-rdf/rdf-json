@@ -129,6 +129,12 @@ module RDF::JSON
         json
       end
     end
+
+    ##
+    # RDF/JSON extensions for `RDF::Repository`.
+    module Repository
+      include Enumerable
+    end
   end # module Extensions
 
   Extensions.constants.each do |klass|

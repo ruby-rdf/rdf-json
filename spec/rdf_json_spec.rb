@@ -69,4 +69,16 @@ describe RDF::JSON::Extensions do
       enumerable.to_json.should == statement.to_json
     end
   end
+
+  context "repositories" do
+    it "should have an RDF/JSON representation" do
+      statement  = RDF::Statement.new(RDF::URI.new("http://rdf.rubyforge.org/"), RDF::DC.title, "RDF.rb")
+      repository = RDF::Repository.new
+      repository << statement
+      repository.should respond_to(:to_json, :to_rdf_json)
+      repository.to_rdf_json.should be_a(Hash)
+      repository.to_rdf_json.should == statement.to_rdf_json
+      repository.to_json.should == statement.to_json
+    end
+  end
 end
