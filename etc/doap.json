@@ -7,7 +7,7 @@
         }
       
       ],
-    "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
         "value" : "http://datagraph.org/bendiken/foaf",
         "type" : "uri"
         }

@@ -26,4 +26,4 @@
   foaf:name          "Arto Bendiken" ;
   foaf:mbox          <mailto:arto.bendiken@gmail.com> ;
   foaf:made          <> ;
-  rdfs:seeAlso       <http://datagraph.org/bendiken/foaf> .
+  rdfs:isDefinedBy   <http://datagraph.org/bendiken/foaf> .

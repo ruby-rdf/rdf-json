@@ -1,5 +1,5 @@
 <http://ar.to/#self> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<http://ar.to/#self> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://datagraph.org/bendiken/foaf> .
+<http://ar.to/#self> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://datagraph.org/bendiken/foaf> .
 <http://ar.to/#self> <http://xmlns.com/foaf/0.1/made> <http://rubygems.org/gems/rdf-json> .
 <http://ar.to/#self> <http://xmlns.com/foaf/0.1/mbox> <mailto:arto.bendiken@gmail.com> .
 <http://ar.to/#self> <http://xmlns.com/foaf/0.1/name> "Arto Bendiken" .
