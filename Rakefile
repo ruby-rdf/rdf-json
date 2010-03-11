@@ -6,3 +6,9 @@ begin
 rescue LoadError => e
 end
 require 'rdf/json'
+
+desc "Generate etc/doap.{nt,json} from etc/doap.ttl."
+task :doap do
+  sh "rapper -i turtle -o ntriples etc/doap.ttl | sort > etc/doap.nt"
+  sh "rapper -i turtle -o json etc/doap.ttl > etc/doap.json"
+end
