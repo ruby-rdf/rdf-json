@@ -18,8 +18,8 @@ Documentation
 Dependencies
 ------------
 
-* [RDF.rb](http://gemcutter.org/gems/rdf) (>= 0.1.0)
-* [JSON](http://gemcutter.org/gems/json_pure) (>= 1.2.3)
+* [RDF.rb](http://rubygems.org/gems/rdf) (>= 0.1.0)
+* [JSON](http://rubygems.org/gems/json_pure) (>= 1.2.3)
 
 Installation
 ------------
