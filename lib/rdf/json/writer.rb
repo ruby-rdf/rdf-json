@@ -4,13 +4,13 @@ module RDF::JSON
   #
   # @example Obtaining an RDF/JSON writer class
   #   RDF::Writer.for(:json)         #=> RDF::JSON::Writer
-  #   RDF::Writer.for("spec/data/test.json")
-  #   RDF::Writer.for(:file_name      => "spec/data/test.json")
+  #   RDF::Writer.for("etc/test.json")
+  #   RDF::Writer.for(:file_name      => "etc/test.json")
   #   RDF::Writer.for(:file_extension => "json")
   #   RDF::Writer.for(:content_type   => "application/json")
   #
   # @example Serializing RDF statements into an RDF/JSON file
-  #   RDF::JSON::Writer.open("spec/data/test.json") do |writer|
+  #   RDF::JSON::Writer.open("etc/test.json") do |writer|
   #     graph.each_statement do |statement|
   #       writer << statement
   #     end

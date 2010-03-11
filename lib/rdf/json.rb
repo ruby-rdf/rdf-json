@@ -8,14 +8,14 @@ module RDF
   #   require 'rdf/json'
   #
   # @example Parsing RDF statements from an RDF/JSON file
-  #   RDF::JSON::Reader.open("spec/data/test.json") do |reader|
+  #   RDF::JSON::Reader.open("etc/doap.json") do |reader|
   #     reader.each_statement do |statement|
   #       puts statement.inspect
   #     end
   #   end
   #
   # @example Serializing RDF statements into an RDF/JSON file
-  #   RDF::JSON::Writer.open("spec/data/test.json") do |writer|
+  #   RDF::JSON::Writer.open("etc/test.json") do |writer|
   #     graph.each_statement do |statement|
   #       writer << statement
   #     end

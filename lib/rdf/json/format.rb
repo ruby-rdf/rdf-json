@@ -4,8 +4,8 @@ module RDF::JSON
   #
   # @example Obtaining an RDF/JSON format class
   #   RDF::Format.for(:json)         #=> RDF::JSON::Format
-  #   RDF::Format.for("spec/data/test.json")
-  #   RDF::Format.for(:file_name      => "spec/data/test.json")
+  #   RDF::Format.for("etc/doap.json")
+  #   RDF::Format.for(:file_name      => "etc/doap.json")
   #   RDF::Format.for(:file_extension => "json")
   #   RDF::Format.for(:content_type   => "application/json")
   #
