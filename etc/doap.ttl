@@ -1,0 +1,29 @@
+@base         <http://rubygems.org/gems/rdf-json> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:   <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+
+<> a doap:Project ;
+  doap:name          "RDF::JSON" ;
+  doap:homepage      <http://rdf.rubyforge.org/json/> ;
+  doap:license       <http://creativecommons.org/licenses/publicdomain/> ;
+  doap:shortdesc     "RDF/JSON support for RDF.rb."@en ;
+  doap:description   "RDF.rb plugin for parsing/serializing RDF/JSON data."@en ;
+  doap:created       "2009-12-28" ;
+  doap:platform      "Ruby" ;
+  doap:download-page <http://rubyforge.org/projects/rdf/> ;
+  doap:bug-database  <http://github.com/bendiken/rdf-json/issues> ;
+  doap:blog          <http://ar.to/>, <http://blog.datagraph.org/> ;
+  doap:developer     <http://ar.to/#self> ;
+  doap:maintainer    <http://ar.to/#self> ;
+  doap:documenter    <http://ar.to/#self> ;
+  foaf:maker         <http://ar.to/#self> ;
+  dc:creator         <http://ar.to/#self> .
+
+<http://ar.to/#self> a foaf:Person ;
+  foaf:name          "Arto Bendiken" ;
+  foaf:mbox          <mailto:arto.bendiken@gmail.com> ;
+  foaf:made          <> ;
+  rdfs:seeAlso       <http://datagraph.org/bendiken/foaf> .
