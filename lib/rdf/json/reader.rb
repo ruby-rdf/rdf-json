@@ -43,7 +43,7 @@ module RDF::JSON
       super do
         @graph = RDF::Graph.new
 
-        JSON.parse(input.read).each do |subject, predicates|
+        JSON.parse(@input.read).each do |subject, predicates|
           subject = parse_resource(subject)
           predicates.each do |predicate, objects|
             predicate = parse_resource(predicate)
@@ -76,7 +76,10 @@ module RDF::JSON
     # @param  [Hash{String => Object}] object
     # @return [RDF::Value]
     def parse_object(object)
-      case type = object['type'].to_sym
+      raise RDF::ReaderError.new, "missing 'type' key in #{object.inspect}"  unless object.has_key?('type')
+      raise RDF::ReaderError.new, "missing 'value' key in #{object.inspect}" unless object.has_key?('value')
+
+      case type = object['type'].to_sym rescue nil
         when :bnode
           RDF::Node.new(object['value'][2..-1])
         when :uri
