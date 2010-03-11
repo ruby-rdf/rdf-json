@@ -79,18 +79,18 @@ module RDF::JSON
       raise RDF::ReaderError.new, "missing 'type' key in #{object.inspect}"  unless object.has_key?('type')
       raise RDF::ReaderError.new, "missing 'value' key in #{object.inspect}" unless object.has_key?('value')
 
-      case type = object['type'].to_sym rescue nil
-        when :bnode
+      case type = object['type']
+        when 'bnode'
           RDF::Node.new(object['value'][2..-1])
-        when :uri
+        when 'uri'
           RDF::URI.new(object['value'])
-        when :literal
+        when 'literal'
           RDF::Literal.new(object['value'], {
             :language => object['lang'],
             :datatype => object['datatype'],
           })
         else
-          raise RDF::ReaderError, "expected :bnode, :uri, or :literal, got #{type.inspect}"
+          raise RDF::ReaderError, "expected 'type' to be 'bnode', 'uri', or 'literal', but got #{type.inspect}"
       end
     end
 
