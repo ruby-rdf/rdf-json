@@ -10,10 +10,10 @@ Documentation
 -------------
 
 * {RDF::JSON}
-  * {RDF::JSON::Extensions}
   * {RDF::JSON::Format}
   * {RDF::JSON::Reader}
   * {RDF::JSON::Writer}
+  * {RDF::JSON::Extensions}
 
 Dependencies
 ------------
