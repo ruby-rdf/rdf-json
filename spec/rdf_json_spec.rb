@@ -86,14 +86,14 @@ describe RDF::JSON::Reader do
     end
 
     it "should parse blank nodes" do
-      bnode = @reader.parse_resource(input = '_:foobar')
+      bnode = @reader.parse_subject(input = '_:foobar')
       bnode.should be_a_node
       bnode.id.should == 'foobar'
       bnode.to_s.should == input
     end
 
     it "should parse URIs" do
-      uri = @reader.parse_resource(input = 'http://rdf.rubyforge.org/')
+      uri = @reader.parse_subject(input = 'http://rdf.rubyforge.org/')
       uri.should be_a_uri
       uri.to_s.should == input
     end

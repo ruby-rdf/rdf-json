@@ -44,9 +44,9 @@ module RDF::JSON
         @graph = RDF::Graph.new
 
         JSON.parse(@input.read).each do |subject, predicates|
-          subject = parse_resource(subject)
+          subject = parse_subject(subject)
           predicates.each do |predicate, objects|
-            predicate = parse_resource(predicate)
+            predicate = parse_predicate(predicate)
             objects.each do |object|
               object = parse_object(object)
               @graph << [subject, predicate, object]
@@ -59,15 +59,25 @@ module RDF::JSON
     end
 
     ##
-    # Parses an RDF/JSON resource string into a URI or blank node.
+    # Parses an RDF/JSON subject string into a URI reference or blank node.
     #
-    # @param  [String] resource
+    # @param  [String] subject
     # @return [RDF::Resource]
-    def parse_resource(resource)
-      case resource
-        when /^_:/ then RDF::Node.new(resource[2..-1])
-        else RDF::URI.new(resource)
+    def parse_subject(subject)
+      case subject
+        when /^_:/ then RDF::Node.new(subject[2..-1])
+        else RDF::URI.new(subject)
       end
+    end
+
+    ##
+    # Parses an RDF/JSON predicate string into a URI reference.
+    #
+    # @param  [String] predicate
+    # @return [RDF::URI]
+    def parse_predicate(predicate)
+      # TODO: support for CURIE predicates (issue #1 on GitHub).
+      parse_subject(predicate)
     end
 
     ##
