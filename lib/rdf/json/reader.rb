@@ -7,7 +7,7 @@ module RDF::JSON
   #   RDF::Reader.for("etc/doap.json")
   #   RDF::Reader.for(:file_name      => "etc/doap.json")
   #   RDF::Reader.for(:file_extension => "json")
-  #   RDF::Reader.for(:content_type   => "application/json") 
+  #   RDF::Reader.for(:content_type   => "application/json")
   #
   # @example Parsing RDF statements from an RDF/JSON file
   #   RDF::JSON::Reader.open("etc/doap.json") do |reader|

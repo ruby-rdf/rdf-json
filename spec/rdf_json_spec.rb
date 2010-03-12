@@ -1,5 +1,18 @@
 require File.join(File.dirname(__FILE__), 'spec_helper')
 
+describe RDF::JSON::Format do
+  it "should be discoverable" do
+    formats = [
+      RDF::Format.for(:json),
+      RDF::Format.for("etc/doap.json"),
+      RDF::Format.for(:file_name      => "etc/doap.json"),
+      RDF::Format.for(:file_extension => "json"),
+      RDF::Format.for(:content_type   => "application/json"),
+    ]
+    formats.each { |format| format.should == RDF::JSON::Format }
+  end
+end
+
 describe RDF::JSON::Extensions do
   context "blank nodes" do
     it "should have an RDF/JSON representation" do
@@ -80,6 +93,17 @@ describe RDF::JSON::Extensions do
 end
 
 describe RDF::JSON::Reader do
+  it "should be discoverable" do
+    readers = [
+      RDF::Reader.for(:json),
+      RDF::Reader.for("etc/doap.json"),
+      RDF::Reader.for(:file_name      => "etc/doap.json"),
+      RDF::Reader.for(:file_extension => "json"),
+      RDF::Reader.for(:content_type   => "application/json"),
+    ]
+    readers.each { |reader| reader.should == RDF::JSON::Reader }
+  end
+
   context "when parsing subjects and predicates" do
     before :each do
       @reader = RDF::JSON::Reader.new('{}')
@@ -155,5 +179,14 @@ describe RDF::JSON::Reader do
 end
 
 describe RDF::JSON::Writer do
-  # TODO
+  it "should be discoverable" do
+    writers = [
+      RDF::Writer.for(:json),
+      RDF::Writer.for("etc/test.json"),
+      RDF::Writer.for(:file_name      => "etc/test.json"),
+      RDF::Writer.for(:file_extension => "json"),
+      RDF::Writer.for(:content_type   => "application/json"),
+    ]
+    writers.each { |writer| writer.should == RDF::JSON::Writer }
+  end
 end
