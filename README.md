@@ -5,6 +5,7 @@ This is an [RDF.rb][] plugin that adds support for parsing/serializing the
 [RDF/JSON][] serialization format.
 
 * <http://github.com/bendiken/rdf-json>
+* <http://blog.datagraph.org/2010/04/parsing-rdf-with-ruby>
 
 Documentation
 -------------
@@ -18,14 +19,14 @@ Documentation
 Dependencies
 ------------
 
-* [RDF.rb](http://rubygems.org/gems/rdf) (>= 0.1.4)
-* [JSON](http://rubygems.org/gems/json_pure) (>= 1.2.3)
+* [RDF.rb](http://rubygems.org/gems/rdf) (>= 0.1.10)
+* [JSON](http://rubygems.org/gems/json_pure) (>= 1.4.3)
 
 Installation
 ------------
 
-The recommended installation method is via RubyGems. To install the latest
-official release, do:
+The recommended installation method is via [RubyGems](http://rubygems.org/).
+To install the latest official release of the `RDF::JSON` gem, do:
 
     % [sudo] gem install rdf-json
 
