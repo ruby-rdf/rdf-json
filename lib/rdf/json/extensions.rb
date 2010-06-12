@@ -131,6 +131,12 @@ module RDF::JSON
     end
 
     ##
+    # RDF/JSON extensions for `RDF::Graph`.
+    module Graph
+      include Enumerable
+    end
+
+    ##
     # RDF/JSON extensions for `RDF::Repository`.
     module Repository
       include Enumerable
