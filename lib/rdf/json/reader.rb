@@ -77,7 +77,7 @@ module RDF::JSON
     # @return [RDF::URI]
     def parse_predicate(predicate)
       # TODO: support for CURIE predicates (issue #1 on GitHub).
-      parse_subject(predicate)
+      RDF::URI.intern(predicate)
     end
 
     ##
