@@ -77,9 +77,9 @@ module RDF::JSON
       # @return [Hash]
       def to_rdf_json
         case
-          when datatype? # FIXME: use `has_datatype?` in RDF.rb 0.1.0
+          when has_datatype?
             {:type => :literal, :value => value.to_s, :datatype => datatype.to_s}
-          when language? # FIXME: use `has_language?` in RDF.rb 0.1.0
+          when has_language?
             {:type => :literal, :value => value.to_s, :lang => language.to_s}
           else
             {:type => :literal, :value => value.to_s}
@@ -95,9 +95,7 @@ module RDF::JSON
       #
       # @return [Hash]
       def to_rdf_json
-        # FIXME: improve the RDF::Statement constructor in RDF.rb 0.1.0
-        s, p, o = subject.to_s, predicate.to_s, object.is_a?(RDF::Value) ? object : RDF::Literal.new(object)
-        {s => {p => [o.to_rdf_json]}}
+        {subject.to_s => {predicate.to_s => [object.to_rdf_json]}}
       end
     end
 
