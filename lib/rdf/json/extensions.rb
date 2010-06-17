@@ -35,6 +35,7 @@ module RDF::JSON
     # @private
     def self.install!
       self.constants.each do |klass|
+        RDF.const_get(klass).send(:include, self.const_get(:Value)) # needed on Ruby 1.8.x
         RDF.const_get(klass).send(:include, self.const_get(klass))
       end
     end

@@ -7,6 +7,7 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :bnode, :value => '_:id'}
+      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -16,6 +17,7 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :uri, :value => 'http://rdf.rubyforge.org/'}
+      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -25,6 +27,7 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :literal, :value => 'Hello, world!'}
+      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -34,6 +37,7 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :literal, :value => 'Hello, world!', :lang => 'en-US'}
+      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -43,6 +47,7 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :literal, :value => 'true', :datatype => RDF::XSD.boolean.to_s}
+      value.to_json.should == value.to_rdf.to_json
     end
   end
 
@@ -52,6 +57,7 @@ describe RDF::JSON::Extensions do
       statement.should respond_to(:to_json, :to_rdf_json)
       statement.to_rdf_json.should be_a(Hash)
       statement.to_rdf_json.should == {'http://rdf.rubyforge.org/' => {RDF::DC.title.to_s => [{:type => :literal, :value => 'RDF.rb'}]}}
+      statement.to_json.should == statement.to_rdf_json.to_json
     end
   end
 
