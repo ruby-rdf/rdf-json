@@ -32,6 +32,14 @@ module RDF::JSON
   #
   module Extensions
     ##
+    # @private
+    def self.install!
+      self.constants.each do |klass|
+        RDF.const_get(klass).send(:include, self.const_get(klass))
+      end
+    end
+
+    ##
     # RDF/JSON extensions for `RDF::Value`.
     module Value
       ##
@@ -141,7 +149,5 @@ module RDF::JSON
     end
   end # module Extensions
 
-  Extensions.constants.each do |klass|
-    RDF.const_get(klass).send(:include, Extensions.const_get(klass))
-  end
+  Extensions.install!
 end # module RDF::JSON
