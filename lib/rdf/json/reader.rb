@@ -76,7 +76,7 @@ module RDF::JSON
     # @param  [String] predicate
     # @return [RDF::URI]
     def parse_predicate(predicate)
-      # TODO: support for CURIE predicates (issue #1 on GitHub).
+      # TODO: optional support for CURIE predicates (issue #1 on GitHub).
       RDF::URI.intern(predicate)
     end
 
@@ -105,25 +105,25 @@ module RDF::JSON
     end
 
     ##
-    # Iterates the given block for each RDF statement in the input.
-    #
-    # @yield  [statement]
-    # @yieldparam [RDF::Statement] statement
-    # @return [void]
-    def each_statement(&block)
-      @graph.each_statement(&block)
+    # @private
+    # @see   RDF::Reader#each_graph
+    # @since 0.2.0
+    def each_graph(&block)
+      block_given? ? @block.call(@graph) : enum_for(:each_graph).extend(RDF::Countable)
     end
 
     ##
-    # Iterates the given block for each RDF triple in the input.
-    #
-    # @yield  [subject, predicate, object]
-    # @yieldparam [RDF::Resource] subject
-    # @yieldparam [RDF::URI]      predicate
-    # @yieldparam [RDF::Value]    object
-    # @return [void]
+    # @private
+    # @see   RDF::Reader#each_statement
+    def each_statement(&block)
+      block_given? ? @graph.each_statement(&block) : enum_for(:each_statement).extend(RDF::Countable)
+    end
+
+    ##
+    # @private
+    # @see   RDF::Reader#each_statement
     def each_triple(&block)
-      @graph.each_triple(&block)
+      block_given? ? @graph.each_triple(&block) : enum_for(:each_triple).extend(RDF::Countable)
     end
   end # class Reader
 end # module RDF::JSON
