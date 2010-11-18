@@ -148,7 +148,25 @@ module RDF::JSON
     module Repository
       include Enumerable
     end
-  end # module Extensions
+
+    ##
+    # RDF/JSON extensions for `RDF::Transaction`.
+    module Transaction
+      ##
+      # Returns the serialized JSON representation of this object.
+      #
+      # @return [String]
+      def to_json
+        json = options.dup.to_hash rescue {}
+        json.merge!({
+          :graph  => graph ? graph.to_uri.to_s : nil,
+          :delete => deletes.to_rdf_json,
+          :insert => inserts.to_rdf_json,
+        })
+        json.to_json
+      end
+    end
+  end # Extensions
 
   Extensions.install!
-end # module RDF::JSON
+end # RDF::JSON
