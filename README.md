@@ -1,8 +1,8 @@
 RDF/JSON Support for RDF.rb
 ===========================
 
-This is an [RDF.rb][] plugin that adds support for parsing/serializing the
-[RDF/JSON][] serialization format.
+This is an [RDF.rb][] plugin that adds support for parsing/serializing
+[RDF/JSON][], a simple JSON-based RDF serialization format.
 
 * <http://github.com/bendiken/rdf-json>
 * <http://blog.datagraph.org/2010/04/parsing-rdf-with-ruby>
@@ -19,8 +19,8 @@ Documentation
 Dependencies
 ------------
 
-* [RDF.rb](http://rubygems.org/gems/rdf) (>= 0.2.0)
-* [JSON](http://rubygems.org/gems/json_pure) (>= 1.4.3)
+* [RDF.rb](http://rubygems.org/gems/rdf) (>= 0.3.0)
+* [JSON](http://rubygems.org/gems/json_pure) (>= 1.4.2)
 
 Installation
 ------------
@@ -37,21 +37,31 @@ To get a local working copy of the development repository, do:
 
     % git clone git://github.com/bendiken/rdf-json.git
 
-Alternatively, you can download the latest development version as a tarball
-as follows:
+Alternatively, download the latest development version as a tarball as
+follows:
 
     % wget http://github.com/bendiken/rdf-json/tarball/master
+
+Mailing List
+------------
+
+* <http://lists.w3.org/Archives/Public/public-rdf-ruby/>
 
 Author
 ------
 
-* [Arto Bendiken](mailto:arto.bendiken@gmail.com) - <http://ar.to/>
+* [Arto Bendiken](http://github.com/bendiken) - <http://ar.to/>
+
+Contributors
+------------
+
+Refer to the accompanying {file:CREDITS} file.
 
 License
 -------
 
-`RDF::JSON` is free and unencumbered public domain software. For more
-information, see <http://unlicense.org/> or the accompanying UNLICENSE file.
+This is free and unencumbered public domain software. For more information,
+see <http://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 
 [RDF.rb]:   http://rdf.rubyforge.org/
 [RDF/JSON]: http://n2.talis.com/wiki/RDF_JSON_Specification
