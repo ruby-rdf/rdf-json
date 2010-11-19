@@ -42,5 +42,5 @@ module RDF
     autoload :Reader,  'rdf/json/reader'
     autoload :Writer,  'rdf/json/writer'
     autoload :VERSION, 'rdf/json/version'
-  end # module JSON
-end # module RDF
+  end # JSON
+end # RDF

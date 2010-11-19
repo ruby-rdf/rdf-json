@@ -51,7 +51,7 @@ module RDF::JSON
         # Any RDF/JSON-compatible class must implement `#to_rdf_json`:
         to_rdf_json.to_json
       end
-    end
+    end # Value
 
     ##
     # RDF/JSON extensions for `RDF::Node`.
@@ -63,7 +63,7 @@ module RDF::JSON
       def to_rdf_json
         {:type => :bnode, :value => to_s}
       end
-    end
+    end # Node
 
     ##
     # RDF/JSON extensions for `RDF::URI`.
@@ -75,7 +75,7 @@ module RDF::JSON
       def to_rdf_json
         {:type => :uri, :value => to_s}
       end
-    end
+    end # URI
 
     ##
     # RDF/JSON extensions for `RDF::Literal`.
@@ -94,7 +94,7 @@ module RDF::JSON
             {:type => :literal, :value => value.to_s}
         end
       end
-    end
+    end # Literal
 
     ##
     # RDF/JSON extensions for `RDF::Statement`.
@@ -106,7 +106,7 @@ module RDF::JSON
       def to_rdf_json
         {subject.to_s => {predicate.to_s => [object.to_rdf_json]}}
       end
-    end
+    end # Statement
 
     ##
     # RDF/JSON extensions for `RDF::Enumerable`.
@@ -135,19 +135,19 @@ module RDF::JSON
         end
         json
       end
-    end
+    end # Enumerable
 
     ##
     # RDF/JSON extensions for `RDF::Graph`.
     module Graph
       include Enumerable
-    end
+    end # Graph
 
     ##
     # RDF/JSON extensions for `RDF::Repository`.
     module Repository
       include Enumerable
-    end
+    end # Repository
 
     ##
     # RDF/JSON extensions for `RDF::Transaction`.
@@ -165,7 +165,7 @@ module RDF::JSON
         })
         json.to_json
       end
-    end
+    end # Transaction
   end # Extensions
 
   Extensions.install!

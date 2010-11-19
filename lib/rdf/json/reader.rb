@@ -125,5 +125,5 @@ module RDF::JSON
     def each_triple(&block)
       block_given? ? @graph.each_triple(&block) : enum_for(:each_triple).extend(RDF::Countable)
     end
-  end # class Reader
-end # module RDF::JSON
+  end # Reader
+end # RDF::JSON

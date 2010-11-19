@@ -86,5 +86,5 @@ module RDF::JSON
         else RDF::Literal.new(value).to_json
       end
     end
-  end # class Writer
-end # module RDF::JSON
+  end # Writer
+end # RDF::JSON

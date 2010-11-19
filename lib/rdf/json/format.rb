@@ -18,5 +18,5 @@ module RDF::JSON
     writer { RDF::JSON::Writer }
 
     require 'json'
-  end # class Format
-end # module RDF::JSON
+  end # Format
+end # RDF::JSON
