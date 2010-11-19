@@ -42,8 +42,10 @@ module RDF::JSON
     #
     # @param  [IO, File, String]       input
     # @param  [Hash{Symbol => Object}] options
-    # @yield  [reader]
-    # @yieldparam [Reader] reader
+    #   any additional options (see `RDF::Reader#initialize`)
+    # @yield  [reader] `self`
+    # @yieldparam  [RDF::Reader] reader
+    # @yieldreturn [void] ignored
     def initialize(input = $stdin, options = {}, &block)
       super do
         @graph = RDF::Graph.new
@@ -59,7 +61,12 @@ module RDF::JSON
           end
         end
 
-        block.call(self) if block_given?
+        if block_given?
+          case block.arity
+            when 0 then instance_eval(&block)
+            else block.call(self)
+          end
+        end
       end
     end
 
@@ -117,6 +124,7 @@ module RDF::JSON
     #
     # @param  [String] string
     # @return [RDF::Node]
+    # @since  0.3.0
     def parse_node(string)
       RDF::Node.new(string[2..-1]) # strips off the initial '_:'
     end
@@ -129,6 +137,7 @@ module RDF::JSON
     # @param  [Hash{Symbol => Object}] options
     # @option options [Boolean] :intern (false)
     # @return [RDF::URI]
+    # @since  0.3.0
     def parse_uri(string, options = {})
       uri = RDF::URI.send(intern = intern? && options[:intern] ? :intern : :new, string)
       uri.validate!     if validate?

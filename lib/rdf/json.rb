@@ -1,4 +1,4 @@
-require 'rdf'
+require 'rdf' # @see http://rubygems.org/gems/rdf
 
 module RDF
   ##
