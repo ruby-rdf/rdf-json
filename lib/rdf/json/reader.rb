@@ -70,8 +70,8 @@ module RDF::JSON
     # @return [RDF::Resource]
     def parse_subject(subject)
       case subject
-        when /^_:/ then RDF::Node.new(subject[2..-1])
-        else RDF::URI.new(subject)
+        when /^_:/ then parse_node(subject)
+        else parse_uri(subject)
       end
     end
 
@@ -82,7 +82,7 @@ module RDF::JSON
     # @return [RDF::URI]
     def parse_predicate(predicate)
       # TODO: optional support for CURIE predicates? (issue #1 on GitHub).
-      RDF::URI.intern(predicate)
+      parse_uri(predicate, :intern => true)
     end
 
     ##
@@ -91,22 +91,49 @@ module RDF::JSON
     # @param  [Hash{String => Object}] object
     # @return [RDF::Value]
     def parse_object(object)
-      raise RDF::ReaderError.new, "missing 'type' key in #{object.inspect}"  unless object.has_key?('type')
-      raise RDF::ReaderError.new, "missing 'value' key in #{object.inspect}" unless object.has_key?('value')
+      raise RDF::ReaderError, "missing 'type' key in #{object.inspect}"  unless object.has_key?('type')
+      raise RDF::ReaderError, "missing 'value' key in #{object.inspect}" unless object.has_key?('value')
 
       case type = object['type']
         when 'bnode'
-          RDF::Node.new(object['value'][2..-1])
+          parse_node(object['value'])
         when 'uri'
-          RDF::URI.new(object['value'])
+          parse_uri(object['value'])
         when 'literal'
-          RDF::Literal.new(object['value'], {
+          literal = RDF::Literal.new(object['value'], {
             :language => object['lang'],
             :datatype => object['datatype'],
           })
+          literal.validate!     if validate?
+          literal.canonicalize! if canonicalize?
+          literal
         else
           raise RDF::ReaderError, "expected 'type' to be 'bnode', 'uri', or 'literal', but got #{type.inspect}"
       end
+    end
+
+    ##
+    # Parses an RDF/JSON blank node string into an `RDF::Node` instance.
+    #
+    # @param  [String] string
+    # @return [RDF::Node]
+    def parse_node(string)
+      RDF::Node.new(string[2..-1]) # strips off the initial '_:'
+    end
+    alias_method :parse_bnode, :parse_node
+
+    ##
+    # Parses an RDF/JSON URI string into an `RDF::URI` instance.
+    #
+    # @param  [String] string
+    # @param  [Hash{Symbol => Object}] options
+    # @option options [Boolean] :intern (false)
+    # @return [RDF::URI]
+    def parse_uri(string, options = {})
+      uri = RDF::URI.send(intern = intern? && options[:intern] ? :intern : :new, string)
+      uri.validate!     if validate?
+      uri.canonicalize! if canonicalize? && !intern
+      uri
     end
 
     ##
