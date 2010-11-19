@@ -2,6 +2,9 @@ module RDF::JSON
   ##
   # RDF/JSON parser.
   #
+  # @example Loading RDF/JSON parsing support
+  #   require 'rdf/json'
+  #
   # @example Obtaining an RDF/JSON reader class
   #   RDF::Reader.for(:json)         #=> RDF::JSON::Reader
   #   RDF::Reader.for("etc/doap.json")
@@ -29,6 +32,8 @@ module RDF::JSON
     format RDF::JSON::Format
 
     ##
+    # The graph constructed when parsing.
+    #
     # @return [RDF::Graph]
     attr_reader :graph
 
@@ -76,7 +81,7 @@ module RDF::JSON
     # @param  [String] predicate
     # @return [RDF::URI]
     def parse_predicate(predicate)
-      # TODO: optional support for CURIE predicates (issue #1 on GitHub).
+      # TODO: optional support for CURIE predicates? (issue #1 on GitHub).
       RDF::URI.intern(predicate)
     end
 
@@ -109,21 +114,30 @@ module RDF::JSON
     # @see   RDF::Reader#each_graph
     # @since 0.2.0
     def each_graph(&block)
-      block_given? ? @block.call(@graph) : enum_for(:each_graph).extend(RDF::Countable)
+      if block_given?
+        block.call(@graph)
+      end
+      enum_graph
     end
 
     ##
     # @private
     # @see   RDF::Reader#each_statement
     def each_statement(&block)
-      block_given? ? @graph.each_statement(&block) : enum_for(:each_statement).extend(RDF::Countable)
+      if block_given?
+        @graph.each_statement(&block)
+      end
+      enum_statement
     end
 
     ##
     # @private
-    # @see   RDF::Reader#each_statement
+    # @see   RDF::Reader#each_triple
     def each_triple(&block)
-      block_given? ? @graph.each_triple(&block) : enum_for(:each_triple).extend(RDF::Countable)
+      if block_given?
+        @graph.each_triple(&block)
+      end
+      enum_triple
     end
   end # Reader
 end # RDF::JSON

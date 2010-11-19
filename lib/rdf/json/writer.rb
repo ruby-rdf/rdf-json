@@ -2,6 +2,9 @@ module RDF::JSON
   ##
   # RDF/JSON serializer.
   #
+  # @example Loading RDF/JSON serialization support
+  #   require 'rdf/json'
+  #
   # @example Obtaining an RDF/JSON writer class
   #   RDF::Writer.for(:json)         #=> RDF::JSON::Writer
   #   RDF::Writer.for("etc/test.json")

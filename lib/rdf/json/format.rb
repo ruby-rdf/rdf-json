@@ -2,6 +2,9 @@ module RDF::JSON
   ##
   # RDF/JSON format specification.
   #
+  # @example Loading RDF/JSON format support
+  #   require 'rdf/json'
+  #
   # @example Obtaining an RDF/JSON format class
   #   RDF::Format.for(:json)         #=> RDF::JSON::Format
   #   RDF::Format.for("etc/doap.json")
