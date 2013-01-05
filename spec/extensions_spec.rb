@@ -4,10 +4,9 @@ describe RDF::JSON::Extensions do
   context "blank nodes" do
     it "should have an RDF/JSON representation" do
       value = RDF::Node.new('id')
-      value.should respond_to(:to_json, :to_rdf_json)
+      value.should respond_to(:to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :bnode, :value => '_:id'}
-      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -17,7 +16,6 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :uri, :value => 'http://rdf.rubyforge.org/'}
-      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -27,7 +25,6 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :literal, :value => 'Hello, world!'}
-      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -37,7 +34,6 @@ describe RDF::JSON::Extensions do
       value.should respond_to(:to_json, :to_rdf_json)
       value.to_rdf_json.should be_a(Hash)
       value.to_rdf_json.should == {:type => :literal, :value => 'Hello, world!', :lang => 'en-US'}
-      value.to_json.should == value.to_rdf_json.to_json
     end
   end
 
@@ -57,7 +53,6 @@ describe RDF::JSON::Extensions do
       statement.should respond_to(:to_json, :to_rdf_json)
       statement.to_rdf_json.should be_a(Hash)
       statement.to_rdf_json.should == {'http://rdf.rubyforge.org/' => {RDF::DC.title.to_s => [{:type => :literal, :value => 'RDF.rb'}]}}
-      statement.to_json.should == statement.to_rdf_json.to_json
     end
   end
 
@@ -67,8 +62,6 @@ describe RDF::JSON::Extensions do
       enumerable = [statement].extend(RDF::Enumerable)
       enumerable.should respond_to(:to_json, :to_rdf_json)
       enumerable.to_rdf_json.should be_a(Hash)
-      enumerable.to_rdf_json.should == statement.to_rdf_json
-      enumerable.to_json.should == statement.to_json
     end
   end
 
@@ -79,7 +72,6 @@ describe RDF::JSON::Extensions do
       graph.should respond_to(:to_json, :to_rdf_json)
       graph.to_rdf_json.should be_a(Hash)
       graph.to_rdf_json.should == statement.to_rdf_json
-      graph.to_json.should == statement.to_json
     end
   end
 
@@ -91,7 +83,6 @@ describe RDF::JSON::Extensions do
       repository.should respond_to(:to_json, :to_rdf_json)
       repository.to_rdf_json.should be_a(Hash)
       repository.to_rdf_json.should == statement.to_rdf_json
-      repository.to_json.should == statement.to_json
     end
   end
 end
