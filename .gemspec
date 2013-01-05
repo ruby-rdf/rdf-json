@@ -27,10 +27,10 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version      = '>= 1.8.1'
   gem.requirements               = []
-  gem.add_runtime_dependency     'json_pure', '>= 1.4.2' # included in Ruby 1.9.2
-  gem.add_runtime_dependency     'rdf',       '~> 0.3.0'
-  gem.add_development_dependency 'yard' ,     '>= 0.6.0'
-  gem.add_development_dependency 'rspec',     '>= 2.1.0'
-  gem.add_development_dependency 'rdf-spec',  '~> 0.3.0'
+  gem.add_runtime_dependency     'json_pure', '>= 1.5.1' # included in Ruby 1.9.2
+  gem.add_runtime_dependency     'rdf',       '>= 0.3.3'
+  gem.add_development_dependency 'yard' ,     '>= 0.6.7'
+  gem.add_development_dependency 'rspec',     '>= 2.5.0'
+  gem.add_development_dependency 'rdf-spec',  '>= 0.3.3'
   gem.post_install_message       = nil
 end

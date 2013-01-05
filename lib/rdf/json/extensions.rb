@@ -6,52 +6,38 @@ module RDF::JSON
   # Classes are extended with two new instance methods:
   #
   # * `#to_rdf_json` returns the RDF/JSON representation as a `Hash` object.
-  # * `#to_json` returns the serialized RDF/JSON representation as a string.
+  # * `#to_rdf_json.to_json` returns the serialized RDF/JSON representation as a string.
   #
   # @example Serializing blank nodes into RDF/JSON format
-  #   RDF::Node.new(id).to_json
+  #   RDF::Node.new(id).to_rdf_json.to_json
   #
   # @example Serializing URI references into RDF/JSON format
-  #   RDF::URI.new("http://rdf.rubyforge.org/").to_json
+  #   RDF::URI.new("http://rdf.rubyforge.org/").to_rdf_json.to_json
   #
   # @example Serializing plain literals into RDF/JSON format
-  #   RDF::Literal.new("Hello, world!").to_json
+  #   RDF::Literal.new("Hello, world!").to_rdf_json.to_json
   #
   # @example Serializing language-tagged literals into RDF/JSON format
-  #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_json
+  #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_rdf_json.to_json
   #
   # @example Serializing datatyped literals into RDF/JSON format
-  #   RDF::Literal.new(3.1415).to_json
-  #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_json
+  #   RDF::Literal.new(3.1415).to_rdf_json.to_json
+  #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_rdf_json.to_json
   #
   # @example Serializing statements into RDF/JSON format
-  #   RDF::Statement.new(s, p, o).to_json
+  #   RDF::Statement.new(s, p, o).to_rdf_json.to_json
   #
   # @example Serializing enumerables into RDF/JSON format
-  #   [RDF::Statement.new(s, p, o)].extend(RDF::Enumerable).to_json
+  #   [RDF::Statement.new(s, p, o)].extend(RDF::Enumerable).to_rdf_json.to_json
   #
   module Extensions
     ##
     # @private
     def self.install!
       self.constants.each do |klass|
-        RDF.const_get(klass).send(:include, self.const_get(:Value)) # needed on Ruby 1.8.x
         RDF.const_get(klass).send(:include, self.const_get(klass))
       end
     end
-
-    ##
-    # RDF/JSON extensions for `RDF::Value`.
-    module Value
-      ##
-      # Returns the serialized RDF/JSON representation of this value.
-      #
-      # @return [String]
-      def to_json
-        # Any RDF/JSON-compatible class must implement `#to_rdf_json`:
-        to_rdf_json.to_json
-      end
-    end # Value
 
     ##
     # RDF/JSON extensions for `RDF::Node`.
@@ -112,14 +98,6 @@ module RDF::JSON
     # RDF/JSON extensions for `RDF::Enumerable`.
     module Enumerable
       ##
-      # Returns the serialized RDF/JSON representation of this object.
-      #
-      # @return [String]
-      def to_json
-        to_rdf_json.to_json
-      end
-
-      ##
       # Returns the RDF/JSON representation of this object.
       #
       # @return [Hash]
@@ -153,17 +131,16 @@ module RDF::JSON
     # RDF/JSON extensions for `RDF::Transaction`.
     module Transaction
       ##
-      # Returns the serialized JSON representation of this object.
+      # Returns the serialized RDF/JSON representation of this object.
       #
-      # @return [String]
-      def to_json
+      # @return [Hash]
+      def to_rdf_json
         json = options.dup.to_hash rescue {}
         json.merge!({
           :graph  => graph ? graph.to_uri.to_s : nil,
           :delete => deletes.to_rdf_json,
           :insert => inserts.to_rdf_json,
         })
-        json.to_json
       end
     end # Transaction
   end # Extensions
