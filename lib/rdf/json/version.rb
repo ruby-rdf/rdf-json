@@ -1,11 +1,8 @@
 module RDF; module JSON
   module VERSION
-    MAJOR = 0
-    MINOR = 3
-    TINY  = 2
-    EXTRA = nil
-
-    STRING = [MAJOR, MINOR, TINY, EXTRA].compact.join('.')
+    FILE = File.expand_path('../../../../VERSION', __FILE__)
+    MAJOR, MINOR, TINY, EXTRA = File.read(FILE).chomp.split('.')
+    STRING = [MAJOR, MINOR, TINY, EXTRA].compact.join('.').freeze
 
     ##
     # @return [String]
