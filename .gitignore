@@ -4,3 +4,4 @@
 pkg
 tmp
 /rdf-json-*gem
+/Gemfile.lock
