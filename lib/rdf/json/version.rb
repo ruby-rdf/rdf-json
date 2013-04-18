@@ -1,15 +1,13 @@
 module RDF; module JSON
   module VERSION
-    MAJOR = 0
-    MINOR = 3
-    TINY  = 2
-    EXTRA = nil
+    VERSION_FILE = File.expand_path("../../../../VERSION", __FILE__)
+    MAJOR, MINOR, TINY, EXTRA = File.read(VERSION_FILE).chop.split(".")
 
     STRING = [MAJOR, MINOR, TINY, EXTRA].compact.join('.')
 
     ##
     # @return [String]
-    def self.to_s() STRING end
+    def self.to_s()   STRING end
 
     ##
     # @return [String]
@@ -17,6 +15,6 @@ module RDF; module JSON
 
     ##
     # @return [Array(Integer, Integer, Integer)]
-    def self.to_a() [MAJOR, MINOR, TINY] end
+    def self.to_a() STRING.split(".") end
   end
 end; end
