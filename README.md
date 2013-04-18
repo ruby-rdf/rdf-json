@@ -7,6 +7,9 @@ This is an [RDF.rb][] plugin that adds support for parsing/serializing
 * <http://github.com/bendiken/rdf-json>
 * <http://blog.datagraph.org/2010/04/parsing-rdf-with-ruby>
 
+[![Gem Version](https://badge.fury.io/rb/rdf-json.png)][gem]
+[![Build Status](https://travis-ci.org/ruby-rdf/rdf-json.png)](https://travis-ci.org/ruby-rdf/rdf-json)
+
 Documentation
 -------------
 
