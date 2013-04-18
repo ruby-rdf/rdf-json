@@ -1,7 +1,8 @@
 .DS_Store
 .tmp
 .yardoc
+*~
+*.gem
+*.lock
 pkg
 tmp
-/rdf-json-*gem
-/Gemfile.lock

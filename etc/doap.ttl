@@ -24,6 +24,6 @@
 
 <http://ar.to/#self> a foaf:Person ;
   foaf:name          "Arto Bendiken" ;
-  foaf:mbox          <mailto:arto.bendiken@gmail.com> ;
+  foaf:mbox          <mailto:arto@bendiken.net> ;
   foaf:made          <> ;
   rdfs:isDefinedBy   <http://datagraph.org/bendiken/foaf> .
