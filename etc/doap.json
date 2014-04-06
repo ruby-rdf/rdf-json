@@ -64,7 +64,7 @@
       
       ],
     "http://usefulinc.com/ns/doap#description" : [ {
-        "value" : "RDF.rb plugin for parsing/serializing RDF/JSON data.",
+        "value" : "RDF.rb extension for parsing/serializing RDF/JSON data.",
         "lang" : "en",
         "type" : "literal"
         }
