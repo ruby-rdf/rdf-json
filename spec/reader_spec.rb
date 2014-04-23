@@ -4,6 +4,19 @@ require 'spec_helper'
 require 'rdf/spec/reader'
 
 describe RDF::JSON::Reader do
+  let!(:doap) {File.expand_path("../../etc/doap.json", __FILE__)}
+  let!(:doap_nt) {File.expand_path("../../etc/doap.nt", __FILE__)}
+  let!(:doap_count) {File.open(doap_nt).each_line.to_a.length}
+
+  before(:each) do
+    @reader_input = File.read(doap)
+    @reader = RDF::JSON::Reader.new(@reader_input)
+    @reader_count = doap_count
+  end
+  
+  # @see lib/rdf/spec/reader.rb in rdf-spec
+  include RDF_Reader
+
   it "should be discoverable" do
     readers = [
       RDF::Reader.for(:json),
@@ -16,10 +29,6 @@ describe RDF::JSON::Reader do
   end
 
   context "when parsing subjects and predicates" do
-    before :each do
-      @reader = RDF::JSON::Reader.new('{}')
-    end
-
     it "should parse blank nodes" do
       bnode = @reader.parse_subject(input = '_:foobar')
       bnode.should be_a_node

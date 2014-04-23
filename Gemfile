@@ -11,7 +11,8 @@ end
 group :debug do
   gem "wirble"
   gem "redcarpet", :platforms => :ruby
-  gem "debugger", :platforms => [:mri_19, :mri_20]
+  gem "debugger", :platform => :mri_19
+  gem "byebug", :platforms => [:mri_20, :mri_21]
   gem "ruby-debug", :platforms => :jruby
 end
 
