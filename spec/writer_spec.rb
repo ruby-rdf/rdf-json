@@ -17,7 +17,7 @@ describe RDF::JSON::Writer do
       RDF::Writer.for(:file_extension => "json"),
       RDF::Writer.for(:content_type   => "application/json"),
     ]
-    writers.each { |writer| writer.should == RDF::JSON::Writer }
+    writers.each { |writer| expect(writer).to eq RDF::JSON::Writer }
   end
 
   context "Examples from spec" do

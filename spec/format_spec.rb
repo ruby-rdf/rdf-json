@@ -9,6 +9,6 @@ describe RDF::JSON::Format do
       RDF::Format.for(:file_extension => "json"),
       RDF::Format.for(:content_type   => "application/json"),
     ]
-    formats.each { |format| format.should == RDF::JSON::Format }
+    formats.each { |format| expect(format).to eq RDF::JSON::Format }
   end
 end

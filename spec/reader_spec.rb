@@ -25,21 +25,21 @@ describe RDF::JSON::Reader do
       RDF::Reader.for(:file_extension => "json"),
       RDF::Reader.for(:content_type   => "application/json"),
     ]
-    readers.each { |reader| reader.should == RDF::JSON::Reader }
+    readers.each { |reader| expect(reader).to eq RDF::JSON::Reader }
   end
 
   context "when parsing subjects and predicates" do
     it "should parse blank nodes" do
       bnode = @reader.parse_subject(input = '_:foobar')
-      bnode.should be_a_node
-      bnode.id.should == 'foobar'
-      bnode.to_s.should == input
+      expect(bnode).to be_a_node
+      expect(bnode.id).to eq 'foobar'
+      expect(bnode.to_s).to eq input
     end
 
     it "should parse URIs" do
       uri = @reader.parse_subject(input = 'http://rdf.rubyforge.org/')
-      uri.should be_a_uri
-      uri.to_s.should == input
+      expect(uri).to be_a_uri
+      expect(uri.to_s).to eq input
     end
   end
 
@@ -50,38 +50,38 @@ describe RDF::JSON::Reader do
 
     it "should parse blank nodes" do
       bnode = @reader.parse_object(input = {'type' => 'bnode', 'value' => '_:foobar'})
-      bnode.should be_a_node
-      bnode.id.should == 'foobar'
-      bnode.to_s.should == input['value']
+      expect(bnode).to be_a_node
+      expect(bnode.id).to eq 'foobar'
+      expect(bnode.to_s).to eq input['value']
     end
 
     it "should parse URIs" do
       uri = @reader.parse_object(input = {'type' => 'uri', 'value' => 'http://rdf.rubyforge.org/'})
-      uri.should be_a_uri
-      uri.to_s.should == input['value']
+      expect(uri).to be_a_uri
+      expect(uri.to_s).to eq input['value']
     end
 
     it "should parse plain literals" do
       literal = @reader.parse_object(input = {'type' => 'literal', 'value' => 'Hello!'})
-      literal.should be_a_literal
-      literal.should be_plain
-      literal.value.should == input['value']
+      expect(literal).to be_a_literal
+      expect(literal).to be_plain
+      expect(literal.value).to eq input['value']
     end
 
     it "should parse language-tagged literals" do
       literal = @reader.parse_object(input = {'type' => 'literal', 'value' => 'Hello!', 'lang' => 'en'})
-      literal.should be_a_literal
-      literal.should have_language
-      literal.value.should == input['value']
-      literal.language.should == input['lang'].to_sym
+      expect(literal).to be_a_literal
+      expect(literal).to have_language
+      expect(literal.value).to eq input['value']
+      expect(literal.language).to eq input['lang'].to_sym
     end
 
     it "should parse datatyped literals" do
       literal = @reader.parse_object(input = {'type' => 'literal', 'value' => '3.1415', 'datatype' => RDF::XSD.double.to_s})
-      literal.should be_a_literal
-      literal.should have_datatype
-      literal.value.should == input['value']
-      literal.datatype.should == RDF::URI.new(input['datatype'])
+      expect(literal).to be_a_literal
+      expect(literal).to have_datatype
+      expect(literal.value).to eq input['value']
+      expect(literal.datatype).to eq RDF::URI.new(input['datatype'])
     end
   end
 
@@ -93,7 +93,7 @@ describe RDF::JSON::Reader do
     end
 
     it "should return the correct number of statements" do
-      @reader.graph.count.should == @ntriples.count
+      expect(@reader.graph.count).to eq @ntriples.count
     end
   end
 
