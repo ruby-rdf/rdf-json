@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rdf/spec/reader'
 
 describe RDF::JSON::Reader do
-  let!(:doap) {File.expand_path("../../etc/doap.nj", __FILE__)}
+  let!(:doap) {File.expand_path("../../etc/doap.rj", __FILE__)}
   let!(:doap_nt) {File.expand_path("../../etc/doap.nt", __FILE__)}
   let!(:doap_count) {File.open(doap_nt).each_line.to_a.length}
 
@@ -19,10 +19,10 @@ describe RDF::JSON::Reader do
   it "should be discoverable" do
     readers = [
       RDF::Reader.for(:json),
-      RDF::Reader.for("etc/doap.json"),
-      RDF::Reader.for(:file_name      => "etc/doap.json"),
-      RDF::Reader.for(:file_extension => "json"),
-      RDF::Reader.for(:content_type   => "application/json"),
+      RDF::Reader.for("etc/doap.rj"),
+      RDF::Reader.for(file_name:      "etc/doap.rj"),
+      RDF::Reader.for(file_extension: "rj"),
+      RDF::Reader.for(content_type:   "application/rdf+json"),
     ]
     readers.each { |reader| expect(reader).to eq RDF::JSON::Reader }
   end
@@ -88,7 +88,7 @@ describe RDF::JSON::Reader do
     before :each do
       etc = File.expand_path(File.join(File.dirname(__FILE__), '..', 'etc'))
       @ntriples = RDF::NTriples::Reader.new(File.open(File.join(etc, 'doap.nt')))
-      @reader = RDF::JSON::Reader.open(File.join(etc, 'doap.json'))
+      @reader = RDF::JSON::Reader.open(File.join(etc, 'doap.rj'))
     end
 
     it "should return the correct number of statements" do

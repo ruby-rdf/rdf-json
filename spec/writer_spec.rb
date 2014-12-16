@@ -11,10 +11,10 @@ describe RDF::JSON::Writer do
   it "should be discoverable" do
     writers = [
       RDF::Writer.for(:json),
-      RDF::Writer.for("etc/test.json"),
-      RDF::Writer.for(:file_name      => "etc/test.json"),
-      RDF::Writer.for(:file_extension => "json"),
-      RDF::Writer.for(:content_type   => "application/json"),
+      RDF::Writer.for("etc/test.rj"),
+      RDF::Writer.for(file_name:      "etc/test.rj"),
+      RDF::Writer.for(file_extension: "rj"),
+      RDF::Writer.for(content_type:   "application/rdf+json"),
     ]
     writers.each { |writer| expect(writer).to eq RDF::JSON::Writer }
   end
