@@ -1,10 +1,9 @@
 # coding: utf-8
-$:.unshift "."
-require 'spec_helper'
+require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rdf/spec/reader'
 
 describe RDF::JSON::Reader do
-  let!(:doap) {File.expand_path("../../etc/doap.json", __FILE__)}
+  let!(:doap) {File.expand_path("../../etc/doap.nj", __FILE__)}
   let!(:doap_nt) {File.expand_path("../../etc/doap.nt", __FILE__)}
   let!(:doap_count) {File.open(doap_nt).each_line.to_a.length}
 

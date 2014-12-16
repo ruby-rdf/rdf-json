@@ -11,6 +11,7 @@
   doap:license       <http://creativecommons.org/licenses/publicdomain/> ;
   doap:shortdesc     "RDF/JSON support for RDF.rb."@en ;
   doap:description   "RDF.rb extension for parsing/serializing RDF/JSON data."@en ;
+  doap:implements    <http://www.w3.org/TR/rdf-json/> ;
   doap:created       "2009-12-28" ;
   doap:platform      "Ruby" ;
   doap:download-page <http://rubyforge.org/projects/rdf/> ;

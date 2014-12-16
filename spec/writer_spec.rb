@@ -1,5 +1,4 @@
-$:.unshift "."
-require 'spec_helper'
+require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rdf/spec/writer'
 
 describe RDF::JSON::Writer do
