@@ -50,6 +50,7 @@ module RDF::JSON
       super do
         @graph = RDF::Graph.new
 
+        @input.rewind
         ::JSON.parse(@input.read).each do |subject, predicates|
           subject = parse_subject(subject)
           predicates.each do |predicate, objects|

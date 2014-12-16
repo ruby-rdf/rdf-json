@@ -2,7 +2,7 @@ require 'rdf' # @see http://rubygems.org/gems/rdf
 
 module RDF
   ##
-  # **`RDF::JSON`** is an RDF/JSON plugin for RDF.rb.
+  # **`RDF::JSON`** is an RDF/JSON extension for RDF.rb.
   #
   # @example Requiring the `RDF::JSON` module
   #   require 'rdf/json'

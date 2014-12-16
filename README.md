@@ -1,7 +1,7 @@
 RDF/JSON Support for RDF.rb
 ===========================
 
-This is an [RDF.rb][] plugin that adds support for parsing/serializing
+This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
 
 * <http://github.com/bendiken/rdf-json>

@@ -1,22 +1,23 @@
-<http://ar.to/#self> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<http://ar.to/#self> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://datagraph.org/bendiken/foaf> .
-<http://ar.to/#self> <http://xmlns.com/foaf/0.1/made> <http://rubygems.org/gems/rdf-json> .
-<http://ar.to/#self> <http://xmlns.com/foaf/0.1/mbox> <mailto:arto@bendiken.net> .
-<http://ar.to/#self> <http://xmlns.com/foaf/0.1/name> "Arto Bendiken" .
-<http://rubygems.org/gems/rdf-json> <http://purl.org/dc/terms/creator> <http://ar.to/#self> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#blog> <http://ar.to/> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#blog> <http://blog.datagraph.org/> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#bug-database> <http://github.com/bendiken/rdf-json/issues> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#created> "2009-12-28" .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#description> "RDF.rb plugin for parsing/serializing RDF/JSON data."@en .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#developer> <http://ar.to/#self> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#documenter> <http://ar.to/#self> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#download-page> <http://rubyforge.org/projects/rdf/> .
+<http://rubygems.org/gems/rdf-json> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://usefulinc.com/ns/doap#Project> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#name> "RDF::JSON" .
 <http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#homepage> <http://rdf.rubyforge.org/json/> .
 <http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#license> <http://creativecommons.org/licenses/publicdomain/> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#maintainer> <http://ar.to/#self> .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#name> "RDF::JSON" .
-<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#platform> "Ruby" .
 <http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#shortdesc> "RDF/JSON support for RDF.rb."@en .
-<http://rubygems.org/gems/rdf-json> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://usefulinc.com/ns/doap#Project> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#description> "RDF.rb extension for parsing/serializing RDF/JSON data."@en .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#implements> <http://www.w3.org/TR/rdf-json/> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#created> "2009-12-28" .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#platform> "Ruby" .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#download-page> <http://rubyforge.org/projects/rdf/> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#bug-database> <http://github.com/bendiken/rdf-json/issues> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#blog> <http://ar.to/> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#blog> <http://blog.datagraph.org/> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#developer> <http://ar.to/#self> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#maintainer> <http://ar.to/#self> .
+<http://rubygems.org/gems/rdf-json> <http://usefulinc.com/ns/doap#documenter> <http://ar.to/#self> .
 <http://rubygems.org/gems/rdf-json> <http://xmlns.com/foaf/0.1/maker> <http://ar.to/#self> .
+<http://rubygems.org/gems/rdf-json> <http://purl.org/dc/terms/creator> <http://ar.to/#self> .
+<http://ar.to/#self> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://ar.to/#self> <http://xmlns.com/foaf/0.1/name> "Arto Bendiken" .
+<http://ar.to/#self> <http://xmlns.com/foaf/0.1/mbox> <mailto:arto@bendiken.net> .
+<http://ar.to/#self> <http://xmlns.com/foaf/0.1/made> <http://rubygems.org/gems/rdf-json> .
+<http://ar.to/#self> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://datagraph.org/bendiken/foaf> .
