@@ -20,12 +20,12 @@ namespace :gem do
   end
 end
 
-desc "Generate etc/doap.{nt,json} from etc/doap.ttl."
+desc "Generate etc/doap.{nt,rj} from etc/doap.ttl."
 task :doap do
   require 'rdf/json'
   require 'rdf/turtle'
   require 'rdf/ntriples'
   g = RDF::Graph.load("etc/doap.ttl")
   RDF::NTriples::Writer.open("etc/doap.nt") {|w| w <<g }
-  RDF::JSON::Writer.open("etc/doap.nj") {|w| w <<g }
+  RDF::JSON::Writer.open("etc/doap.rj") {|w| w <<g }
 end

@@ -12,9 +12,9 @@ describe RDF::JSON::Format do
     formats = [
       RDF::Format.for(:json),
       RDF::Format.for("etc/doap.rj"),
-      RDF::Format.for(:file_name      => "etc/doap.rj"),
-      RDF::Format.for(:file_extension => "rj"),
-      RDF::Format.for(:content_type   => "application/rdf+json"),
+      RDF::Format.for(file_name:      "etc/doap.rj"),
+      RDF::Format.for(file_extension: "rj"),
+      RDF::Format.for(content_type:   "application/rdf+json"),
     ]
     formats.each { |format| expect(format).to eq RDF::JSON::Format }
   end
