@@ -20,7 +20,7 @@ namespace :gem do
   end
 end
 
-desc "Generate etc/doap.{nt,json} from etc/doap.ttl."
+desc "Generate etc/doap.{nt,nj} from etc/doap.ttl."
 task :doap do
   require 'rdf/json'
   require 'rdf/turtle'

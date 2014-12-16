@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.email              = 'public-rdf-ruby@w3.org'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(AUTHORS CREDITS README UNLICENSE VERSION etc/doap.json) + Dir.glob('lib/**/*.rb')
+  gem.files              = %w(AUTHORS CREDITS README UNLICENSE VERSION etc/doap.nj) + Dir.glob('lib/**/*.rb')
   gem.bindir             = %q(bin)
   gem.executables        = %w()
   gem.default_executable = gem.executables.first
@@ -29,7 +29,7 @@ Gem::Specification.new do |gem|
   gem.requirements               = []
   gem.add_runtime_dependency     'rdf',       '~> 1.1'
   gem.add_development_dependency 'rdf-spec',  '~> 1.1'
-  gem.add_development_dependency 'rdf-isomorphic'
+  gem.add_development_dependency 'rdf-isomorphic', '~> 1.1'
   gem.add_development_dependency 'rspec',     '~> 3.0'
   gem.add_development_dependency 'rspec-its', '~> 1.0'
   gem.add_development_dependency 'yard' ,     '~> 0.8'
