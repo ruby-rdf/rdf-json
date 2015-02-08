@@ -20,6 +20,12 @@ module RDF::JSON
     reader { RDF::JSON::Reader }
     writer { RDF::JSON::Writer }
 
+    ##
+     # Override normal symbol generation
+     def self.to_sym
+       :rj
+     end
+
     require 'json'
   end # Format
 end # RDF::JSON

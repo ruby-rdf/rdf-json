@@ -10,7 +10,7 @@ describe RDF::JSON::Format do
 
   it "should be discoverable" do
     formats = [
-      RDF::Format.for(:json),
+      RDF::Format.for(:rj),
       RDF::Format.for("etc/doap.rj"),
       RDF::Format.for(file_name:      "etc/doap.rj"),
       RDF::Format.for(file_extension: "rj"),

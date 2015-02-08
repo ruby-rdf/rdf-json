@@ -18,7 +18,7 @@ describe RDF::JSON::Reader do
 
   it "should be discoverable" do
     readers = [
-      RDF::Reader.for(:json),
+      RDF::Reader.for(:rj),
       RDF::Reader.for("etc/doap.rj"),
       RDF::Reader.for(file_name:      "etc/doap.rj"),
       RDF::Reader.for(file_extension: "rj"),
