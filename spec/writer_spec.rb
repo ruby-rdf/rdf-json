@@ -10,7 +10,7 @@ describe RDF::JSON::Writer do
 
   it "should be discoverable" do
     writers = [
-      RDF::Writer.for(:json),
+      RDF::Writer.for(:rj),
       RDF::Writer.for("etc/test.rj"),
       RDF::Writer.for(file_name:      "etc/test.rj"),
       RDF::Writer.for(file_extension: "rj"),
@@ -100,7 +100,7 @@ describe RDF::JSON::Writer do
     }.each do |test, (nt, json)|
       it "serializes #{test}" do
         g = RDF::Graph.new << RDF::NTriples::Reader.new(nt)
-        str = g.dump(:json)
+        str = g.dump(:rj)
         expect(JSON.parse(str)).to eq(JSON.parse(json))
       end
     end
