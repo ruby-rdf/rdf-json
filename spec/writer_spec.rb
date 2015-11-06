@@ -2,11 +2,9 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rdf/spec/writer'
 
 describe RDF::JSON::Writer do
-  before(:each) do
-    @writer = RDF::JSON::Writer.new(StringIO.new)
+  it_behaves_like 'an RDF::Writer' do
+    let(:writer) {RDF::JSON::Writer.new}
   end
-  
-  include RDF_Writer
 
   it "should be discoverable" do
     writers = [

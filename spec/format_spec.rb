@@ -2,11 +2,9 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rdf/spec/format'
 
 describe RDF::JSON::Format do
-  before :each do
-    @format_class = RDF::JSON::Format
+  it_behaves_like 'an RDF::Format' do
+    let(:format_class) {RDF::JSON::Format}
   end
-
-  include RDF_Format
 
   it "should be discoverable" do
     formats = [
