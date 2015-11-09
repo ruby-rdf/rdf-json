@@ -6,6 +6,7 @@ describe RDF::JSON::Reader do
   let!(:doap) {File.expand_path("../../etc/doap.rj", __FILE__)}
   let!(:doap_nt) {File.expand_path("../../etc/doap.nt", __FILE__)}
   let!(:doap_count) {File.open(doap_nt).each_line.to_a.length}
+  subject {RDF::JSON::Reader.new("{}")}
 
   before(:each) do
     @reader_input = File.read(doap)
@@ -13,8 +14,11 @@ describe RDF::JSON::Reader do
     @reader_count = doap_count
   end
   
-  # @see lib/rdf/spec/reader.rb in rdf-spec
-  include RDF_Reader
+  it_behaves_like 'an RDF::Reader' do
+    let(:reader_input) {File.read(doap)}
+    let(:reader) {RDF::JSON::Reader.new(reader_input)}
+    let(:reader_count) {doap_count}
+  end
 
   it "should be discoverable" do
     readers = [
@@ -29,46 +33,42 @@ describe RDF::JSON::Reader do
 
   context "when parsing subjects and predicates" do
     it "should parse blank nodes" do
-      bnode = @reader.parse_subject(input = '_:foobar')
+      bnode = subject.parse_subject(input = '_:foobar')
       expect(bnode).to be_a_node
       expect(bnode.id).to eq 'foobar'
       expect(bnode.to_s).to eq input
     end
 
     it "should parse URIs" do
-      uri = @reader.parse_subject(input = 'http://rdf.rubyforge.org/')
+      uri = subject.parse_subject(input = 'http://rdf.rubyforge.org/')
       expect(uri).to be_a_uri
       expect(uri.to_s).to eq input
     end
   end
 
   context "when parsing objects" do
-    before :each do
-      @reader = RDF::JSON::Reader.new('{}')
-    end
-
     it "should parse blank nodes" do
-      bnode = @reader.parse_object(input = {'type' => 'bnode', 'value' => '_:foobar'})
+      bnode = subject.parse_object(input = {'type' => 'bnode', 'value' => '_:foobar'})
       expect(bnode).to be_a_node
       expect(bnode.id).to eq 'foobar'
       expect(bnode.to_s).to eq input['value']
     end
 
     it "should parse URIs" do
-      uri = @reader.parse_object(input = {'type' => 'uri', 'value' => 'http://rdf.rubyforge.org/'})
+      uri = subject.parse_object(input = {'type' => 'uri', 'value' => 'http://rdf.rubyforge.org/'})
       expect(uri).to be_a_uri
       expect(uri.to_s).to eq input['value']
     end
 
     it "should parse plain literals" do
-      literal = @reader.parse_object(input = {'type' => 'literal', 'value' => 'Hello!'})
+      literal = subject.parse_object(input = {'type' => 'literal', 'value' => 'Hello!'})
       expect(literal).to be_a_literal
       expect(literal).to be_plain
       expect(literal.value).to eq input['value']
     end
 
     it "should parse language-tagged literals" do
-      literal = @reader.parse_object(input = {'type' => 'literal', 'value' => 'Hello!', 'lang' => 'en'})
+      literal = subject.parse_object(input = {'type' => 'literal', 'value' => 'Hello!', 'lang' => 'en'})
       expect(literal).to be_a_literal
       expect(literal).to have_language
       expect(literal.value).to eq input['value']
@@ -76,7 +76,7 @@ describe RDF::JSON::Reader do
     end
 
     it "should parse datatyped literals" do
-      literal = @reader.parse_object(input = {'type' => 'literal', 'value' => '3.1415', 'datatype' => RDF::XSD.double.to_s})
+      literal = subject.parse_object(input = {'type' => 'literal', 'value' => '3.1415', 'datatype' => RDF::XSD.double.to_s})
       expect(literal).to be_a_literal
       expect(literal).to have_datatype
       expect(literal.value).to eq input['value']
@@ -85,14 +85,10 @@ describe RDF::JSON::Reader do
   end
 
   context "when parsing etc/doap.json" do
-    before :each do
-      etc = File.expand_path(File.join(File.dirname(__FILE__), '..', 'etc'))
-      @ntriples = RDF::NTriples::Reader.new(File.open(File.join(etc, 'doap.nt')))
-      @reader = RDF::JSON::Reader.open(File.join(etc, 'doap.rj'))
-    end
+    subject {RDF::JSON::Reader.new(File.read(doap))}
 
     it "should return the correct number of statements" do
-      expect(@reader.graph.count).to eq @ntriples.count
+      expect(subject.graph.count).to eq doap_count
     end
   end
 
