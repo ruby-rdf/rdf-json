@@ -29,6 +29,7 @@ module RDF::JSON
   #
   # @see http://n2.talis.com/wiki/RDF_JSON_Specification
   class Reader < RDF::Reader
+    include RDF::Util::Logger
     format RDF::JSON::Format
 
     ##
@@ -48,20 +49,6 @@ module RDF::JSON
     # @yieldreturn [void] ignored
     def initialize(input = $stdin, options = {}, &block)
       super do
-        @graph = RDF::Graph.new
-
-        @input.rewind
-        ::JSON.parse(@input.read).each do |subject, predicates|
-          subject = parse_subject(subject)
-          predicates.each do |predicate, objects|
-            predicate = parse_predicate(predicate)
-            objects.each do |object|
-              object = parse_object(object)
-              @graph << [subject, predicate, object]
-            end
-          end
-        end
-
         if block_given?
           case block.arity
             when 0 then instance_eval(&block)
@@ -99,8 +86,8 @@ module RDF::JSON
     # @param  [Hash{String => Object}] object
     # @return [RDF::Value]
     def parse_object(object)
-      raise RDF::ReaderError, "missing 'type' key in #{object.inspect}"  unless object.has_key?('type')
-      raise RDF::ReaderError, "missing 'value' key in #{object.inspect}" unless object.has_key?('value')
+      log_error("missing 'type' key in #{object.inspect}", exception: RDF::ReaderError) unless object.has_key?('type')
+      log_error("missing 'value' key in #{object.inspect}", exception: RDF::ReaderError) unless object.has_key?('value')
 
       case type = object['type']
         when 'bnode'
@@ -116,8 +103,10 @@ module RDF::JSON
           literal.canonicalize! if canonicalize?
           literal
         else
-          raise RDF::ReaderError, "expected 'type' to be 'bnode', 'uri', or 'literal', but got #{type.inspect}"
+          log_error("expected 'type' to be 'bnode', 'uri', or 'literal', but got #{type.inspect}", exception: RDF::ReaderError)
       end
+    rescue RDF::ReaderError
+      nil
     end
 
     ##
@@ -127,7 +116,9 @@ module RDF::JSON
     # @return [RDF::Node]
     # @since  0.3.0
     def parse_node(string)
-      RDF::Node.new(string[2..-1]) # strips off the initial '_:'
+      @nodes ||= {}
+      id = string[2..-1] # strips off the initial '_:'
+      @nodes[id.to_sym] ||= RDF::Node.new(id)
     end
     alias_method :parse_bnode, :parse_node
 
@@ -148,23 +139,25 @@ module RDF::JSON
 
     ##
     # @private
-    # @see   RDF::Reader#each_graph
-    # @since 0.2.0
-    def each_graph(&block)
-      if block_given?
-        block.call(@graph)
-      end
-      enum_graph
-    end
-
-    ##
-    # @private
     # @see   RDF::Reader#each_statement
     def each_statement(&block)
       if block_given?
-        @graph.each_statement(&block)
+        @input.rewind
+        ::JSON.parse(@input.read).each do |subject, predicates|
+          subject = parse_subject(subject)
+          predicates.each do |predicate, objects|
+            predicate = parse_predicate(predicate)
+            objects.each do |object|
+              object = parse_object(object)
+              yield RDF::Statement(subject, predicate, object) if object
+            end
+          end
+        end
+        if validate? && log_statistics[:error]
+          raise RDF::ReaderError, "Errors found during processing"
+        end
       end
-      enum_statement
+      enum_for(:each_statement)
     end
 
     ##
@@ -172,9 +165,11 @@ module RDF::JSON
     # @see   RDF::Reader#each_triple
     def each_triple(&block)
       if block_given?
-        @graph.each_triple(&block)
+        each_statement do |statement|
+          block.call(*statement.to_triple)
+        end
       end
-      enum_triple
+      enum_for(:each_triple)
     end
   end # Reader
 end # RDF::JSON
