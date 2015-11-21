@@ -142,16 +142,20 @@ module RDF::JSON
     # @see   RDF::Reader#each_statement
     def each_statement(&block)
       if block_given?
-        @input.rewind
-        ::JSON.parse(@input.read).each do |subject, predicates|
-          subject = parse_subject(subject)
-          predicates.each do |predicate, objects|
-            predicate = parse_predicate(predicate)
-            objects.each do |object|
-              object = parse_object(object)
-              yield RDF::Statement(subject, predicate, object) if object
+        @input.rewind rescue nil
+        begin
+          ::JSON.parse(@input.read).each do |subject, predicates|
+            subject = parse_subject(subject)
+            predicates.each do |predicate, objects|
+              predicate = parse_predicate(predicate)
+              objects.each do |object|
+                object = parse_object(object)
+                yield RDF::Statement(subject, predicate, object) if object
+              end
             end
           end
+        rescue ::JSON::ParserError => e
+          log_error(e.message)
         end
         if validate? && log_statistics[:error]
           raise RDF::ReaderError, "Errors found during processing"
