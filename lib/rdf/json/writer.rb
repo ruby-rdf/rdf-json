@@ -55,6 +55,7 @@ module RDF::JSON
     # @see    #write_triple
     def write_epilogue
       puts @json.to_json
+      super
     end
 
     ##
