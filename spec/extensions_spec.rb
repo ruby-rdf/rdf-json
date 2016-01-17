@@ -30,10 +30,10 @@ describe RDF::JSON::Extensions do
 
   context "language-tagged literals" do
     it "should have an RDF/JSON representation" do
-      value = RDF::Literal.new('Hello, world!', :language => 'en-US')
+      value = RDF::Literal.new('Hello, world!', :language => 'en-us')
       expect(value).to respond_to(:to_json, :to_rdf_json)
       expect(value.to_rdf_json).to be_a(Hash)
-      expect(value.to_rdf_json).to eq({:type => :literal, :value => 'Hello, world!', :lang => 'en-US'})
+      expect(value.to_rdf_json).to eq({:type => :literal, :value => 'Hello, world!', :lang => 'en-us'})
     end
   end
 
