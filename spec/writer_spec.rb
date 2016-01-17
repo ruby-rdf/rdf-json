@@ -97,8 +97,8 @@ describe RDF::JSON::Writer do
       ],
     }.each do |test, (nt, json)|
       it "serializes #{test}" do
-        g = RDF::Graph.new << RDF::NTriples::Reader.new(nt)
-        str = g.dump(:rj)
+        statements = RDF::NTriples::Reader.new(nt, &:each).to_a.extend(RDF::Enumerable)
+        str = statements.dump(:rj)
         expect(JSON.parse(str)).to eq(JSON.parse(json))
       end
     end
