@@ -27,9 +27,9 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version      = '>= 2.0'
   gem.requirements               = []
-  gem.add_runtime_dependency     'rdf',       '~> 1.99'
-  gem.add_development_dependency 'rdf-spec',  '~> 1.99'
-  gem.add_development_dependency 'rdf-isomorphic', '~> 1.99'
+  gem.add_runtime_dependency     'rdf',       '>= 1.99', '< 3'
+  gem.add_development_dependency 'rdf-spec',  '>= 1.99', '< 3'
+  gem.add_development_dependency 'rdf-isomorphic', '>= 1.99', '< 3'
   gem.add_development_dependency 'rspec',     '~> 3.0'
   gem.add_development_dependency 'rspec-its', '~> 1.0'
   gem.add_development_dependency 'yard' ,     '~> 0.8'
