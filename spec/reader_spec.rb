@@ -88,7 +88,7 @@ describe RDF::JSON::Reader do
     subject {RDF::JSON::Reader.new(File.read(doap))}
 
     it "should return the correct number of statements" do
-      expect(subject.graph.count).to eq doap_count
+      expect(subject.count).to eq doap_count
     end
   end
 
@@ -171,7 +171,7 @@ describe RDF::JSON::Reader do
         }}
       ],
     }.each do |test, (nt, json)|
-      it "parses #{test}", :pending => (test == 'example 7') do
+      it "parses #{test}" do
         g = RDF::Graph.new << RDF::JSON::Reader.new(json)
         expect(g).to be_equivalent_graph(nt)
       end

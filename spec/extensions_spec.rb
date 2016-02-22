@@ -30,10 +30,10 @@ describe RDF::JSON::Extensions do
 
   context "language-tagged literals" do
     it "should have an RDF/JSON representation" do
-      value = RDF::Literal.new('Hello, world!', :language => 'en-US')
+      value = RDF::Literal.new('Hello, world!', :language => 'en-us')
       expect(value).to respond_to(:to_json, :to_rdf_json)
       expect(value.to_rdf_json).to be_a(Hash)
-      expect(value.to_rdf_json).to eq({:type => :literal, :value => 'Hello, world!', :lang => 'en-US'})
+      expect(value.to_rdf_json).to eq({:type => :literal, :value => 'Hello, world!', :lang => 'en-us'})
     end
   end
 
@@ -49,7 +49,7 @@ describe RDF::JSON::Extensions do
 
   context "statements" do
     it "should have an RDF/JSON representation" do
-      statement = RDF::Statement.new(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
+      statement = RDF::Statement(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
       expect(statement).to respond_to(:to_json, :to_rdf_json)
       expect(statement.to_rdf_json).to be_a(Hash)
       expect(statement.to_rdf_json).to eq({'http://rdf.rubyforge.org/' => {RDF::URI("http://purl.org/dc/terms/title").to_s => [{:type => :literal, :value => 'RDF.rb'}]}})
@@ -58,7 +58,7 @@ describe RDF::JSON::Extensions do
 
   context "enumerables" do
     it "should have an RDF/JSON representation" do
-      statement  = RDF::Statement.new(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
+      statement  = RDF::Statement(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
       enumerable = [statement].extend(RDF::Enumerable)
       expect(enumerable).to respond_to(:to_json, :to_rdf_json)
       expect(enumerable.to_rdf_json).to be_a(Hash)
@@ -67,7 +67,7 @@ describe RDF::JSON::Extensions do
 
   context "graphs" do
     it "should have an RDF/JSON representation" do
-      statement  = RDF::Statement.new(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
+      statement  = RDF::Statement(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
       graph      = RDF::Graph.new { |g| g << statement }
       expect(graph).to respond_to(:to_json, :to_rdf_json)
       expect(graph.to_rdf_json).to be_a(Hash)
@@ -77,7 +77,7 @@ describe RDF::JSON::Extensions do
 
   context "repositories" do
     it "should have an RDF/JSON representation" do
-      statement  = RDF::Statement.new(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
+      statement  = RDF::Statement(RDF::URI('http://rdf.rubyforge.org/'), RDF::URI("http://purl.org/dc/terms/title"), 'RDF.rb')
       repository = RDF::Repository.new
       repository << statement
       expect(repository).to respond_to(:to_json, :to_rdf_json)
