@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
 
   gem.name               = 'rdf-json'
   gem.homepage           = 'http://ruby-rdf.github.com/rdf-json'
-  gem.license            = 'Public Domain' if gem.respond_to?(:license=)
+  gem.license            = 'Unlicense'
   gem.summary            = 'RDF/JSON support for RDF.rb.'
   gem.description        = 'RDF.rb extension for parsing/serializing RDF/JSON data.'
   gem.rubyforge_project  = 'rdf'
@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.email              = 'public-rdf-ruby@w3.org'
 
   gem.platform           = Gem::Platform::RUBY
-  gem.files              = %w(AUTHORS CREDITS README UNLICENSE VERSION etc/doap.rj) + Dir.glob('lib/**/*.rb')
+  gem.files              = %w(AUTHORS CREDITS README.md UNLICENSE VERSION etc/doap.rj) + Dir.glob('lib/**/*.rb')
   gem.bindir             = %q(bin)
   gem.executables        = %w()
   gem.default_executable = gem.executables.first
