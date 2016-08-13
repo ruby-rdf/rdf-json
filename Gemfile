@@ -10,7 +10,6 @@ group :development do
 end
 
 group :debug do
-  gem "wirble"
   gem "redcarpet",  platforms: :ruby
   gem "byebug",     platforms: :mri
   gem "ruby-debug", platforms: :jruby
