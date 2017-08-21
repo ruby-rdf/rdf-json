@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby -rubygems
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |gem|
@@ -10,7 +9,6 @@ Gem::Specification.new do |gem|
   gem.license            = 'Unlicense'
   gem.summary            = 'RDF/JSON support for RDF.rb.'
   gem.description        = 'RDF.rb extension for parsing/serializing RDF/JSON data.'
-  gem.rubyforge_project  = 'rdf'
 
   gem.author             = 'Arto Bendiken'
   gem.email              = 'public-rdf-ruby@w3.org'
