@@ -1,6 +1,6 @@
 module RDF::JSON
   ##
-  # RDF/JSON extensions for [RDF.rb](http://rdf.rubyforge.org/) core classes
+  # RDF/JSON extensions for [RDF.rb](https://github.com/ruby-rdf/rdf) core classes
   # and mixins.
   #
   # Classes are extended with two new instance methods:
@@ -12,7 +12,7 @@ module RDF::JSON
   #   RDF::Node.new(id).to_rdf_json.to_json
   #
   # @example Serializing URI references into RDF/JSON format
-  #   RDF::URI.new("http://rdf.rubyforge.org/").to_rdf_json.to_json
+  #   RDF::URI.new("https://rubygems.org/gems/rdf/").to_rdf_json.to_json
   #
   # @example Serializing plain literals into RDF/JSON format
   #   RDF::Literal.new("Hello, world!").to_rdf_json.to_json

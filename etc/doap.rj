@@ -51,7 +51,7 @@
         "http://usefulinc.com/ns/doap#bug-database": [
             {
                 "type": "uri",
-                "value": "http://github.com/bendiken/rdf-json/issues"
+                "value": "http://github.com/ruby-rdf/rdf-json/issues"
             }
         ],
         "http://usefulinc.com/ns/doap#created": [
@@ -82,13 +82,13 @@
         "http://usefulinc.com/ns/doap#download-page": [
             {
                 "type": "uri",
-                "value": "http://rubyforge.org/projects/rdf/"
+                "value": "http://ruby-rdf.github.io/rdf-json"
             }
         ],
         "http://usefulinc.com/ns/doap#homepage": [
             {
                 "type": "uri",
-                "value": "http://rdf.rubyforge.org/json/"
+                "value": "https://rubygems.org/gems/rdf-json/"
             }
         ],
         "http://usefulinc.com/ns/doap#implements": [

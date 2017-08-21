@@ -4,7 +4,7 @@ RDF/JSON Support for RDF.rb
 This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
 
-* <http://github.com/bendiken/rdf-json>
+* <http://github.com/ruby-rdf/rdf-json>
 * <http://blog.datagraph.org/2010/04/parsing-rdf-with-ruby>
 
 [![Gem Version](https://badge.fury.io/rb/rdf-json.png)](http://badge.fury.io/rb/rdf-json)
@@ -42,7 +42,7 @@ To get a local working copy of the development repository, do:
 Alternatively, download the latest development version as a tarball as
 follows:
 
-    % wget http://github.com/bendiken/rdf-json/tarball/master
+    % wget http://github.com/ruby-rdf/rdf-json/tarball/master
 
 Mailing List
 ------------
@@ -52,7 +52,7 @@ Mailing List
 Author
 ------
 
-* [Arto Bendiken](http://github.com/bendiken) - <http://ar.to/>
+* [Arto Bendiken](http://github.com/ruby-rdf) - <http://ar.to/>
 
 Contributors
 ------------
@@ -83,7 +83,7 @@ This repository uses [Git Flow](https://github.com/nvie/gitflow) to mange develo
 This is free and unencumbered public domain software. For more information,
 see <http://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 
-[RDF.rb]:   http://rdf.rubyforge.org/
+[RDF.rb]:   http://www.rubydoc.info/github/ruby-rdf/rdf/
 [RDF/JSON]: http://www.w3.org/TR/2013/NOTE-rdf-json-20131107/
 [YARD]:             http://yardoc.org/
 [YARD-GS]:          http://rubydoc.info/docs/yard/file/docs/GettingStarted.md

@@ -7,15 +7,15 @@
 
 <> a doap:Project ;
   doap:name          "RDF::JSON" ;
-  doap:homepage      <http://rdf.rubyforge.org/json/> ;
+  doap:homepage      <https://rubygems.org/gems/rdf-json/> ;
   doap:license       <http://creativecommons.org/licenses/publicdomain/> ;
   doap:shortdesc     "RDF/JSON support for RDF.rb."@en ;
   doap:description   "RDF.rb extension for parsing/serializing RDF/JSON data."@en ;
   doap:implements    <http://www.w3.org/TR/rdf-json/> ;
   doap:created       "2009-12-28" ;
   doap:platform      "Ruby" ;
-  doap:download-page <http://rubyforge.org/projects/rdf/> ;
-  doap:bug-database  <http://github.com/bendiken/rdf-json/issues> ;
+  doap:download-page <http://ruby-rdf.github.io/rdf-json/> ;
+  doap:bug-database  <http://github.com/ruby-rdf/rdf-json/issues> ;
   doap:blog          <http://ar.to/>, <http://blog.datagraph.org/> ;
   doap:developer     <http://ar.to/#self> ;
   doap:maintainer    <http://ar.to/#self> ;
