@@ -40,7 +40,7 @@ describe RDF::JSON::Reader do
     end
 
     it "should parse URIs" do
-      uri = subject.parse_subject(input = 'http://rdf.rubyforge.org/')
+      uri = subject.parse_subject(input = 'https://github.com/ruby-rdf/rdf')
       expect(uri).to be_a_uri
       expect(uri.to_s).to eq input
     end
@@ -55,7 +55,7 @@ describe RDF::JSON::Reader do
     end
 
     it "should parse URIs" do
-      uri = subject.parse_object(input = {'type' => 'uri', 'value' => 'http://rdf.rubyforge.org/'})
+      uri = subject.parse_object(input = {'type' => 'uri', 'value' => 'https://github.com/ruby-rdf/rdf'})
       expect(uri).to be_a_uri
       expect(uri.to_s).to eq input['value']
     end

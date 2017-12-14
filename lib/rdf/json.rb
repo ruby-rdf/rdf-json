@@ -23,14 +23,14 @@ module RDF
   #
   # @example Serializing RDF values into RDF/JSON strings
   #   RDF::Node.new('foobar').to_rdf_json.to_json
-  #   RDF::URI.new("http://rdf.rubyforge.org/").to_rdf_json.to_json
+  #   RDF::URI.new("https://rubygems.org/gems/rdf/").to_rdf_json.to_json
   #   RDF::Literal.new("Hello, world!").to_rdf_json
   #   RDF::Literal.new("Hello, world!", :language => 'en-US').to_rdf_json.to_json
   #   RDF::Literal.new(3.1415).to_rdf_json.to_json
   #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_rdf_json.to_json
   #   RDF::Statement.new(s, p, o).to_rdf_json.to_json
   #
-  # @see http://rdf.rubyforge.org/
+  # @see http://www.rubydoc.info/github/ruby-rdf/rdf/
   # @see http://n2.talis.com/wiki/RDF_JSON_Specification
   # @see http://en.wikipedia.org/wiki/JSON
   #

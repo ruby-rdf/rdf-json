@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby -rubygems
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |gem|
@@ -10,7 +9,6 @@ Gem::Specification.new do |gem|
   gem.license            = 'Unlicense'
   gem.summary            = 'RDF/JSON support for RDF.rb.'
   gem.description        = 'RDF.rb extension for parsing/serializing RDF/JSON data.'
-  gem.rubyforge_project  = 'rdf'
 
   gem.author             = 'Arto Bendiken'
   gem.email              = 'public-rdf-ruby@w3.org'
@@ -25,13 +23,16 @@ Gem::Specification.new do |gem|
   gem.test_files         = %w()
   gem.has_rdoc           = false
 
-  gem.required_ruby_version      = '>= 2.0'
+  gem.required_ruby_version      = '>= 2.2.2'
   gem.requirements               = []
-  gem.add_runtime_dependency     'rdf',             '~> 2.0'
-  gem.add_development_dependency 'rdf-spec',        '~> 2.0'
-  gem.add_development_dependency 'rdf-isomorphic',  '~> 2.0'
-  gem.add_development_dependency 'rspec',           '~> 3.0'
-  gem.add_development_dependency 'rspec-its',       '~> 1.0'
+  #gem.add_runtime_dependency     'rdf',             '~> 2.0'
+  #gem.add_development_dependency 'rdf-spec',        '~> 2.0'
+  #gem.add_development_dependency 'rdf-isomorphic',  '~> 2.0'
+  gem.add_runtime_dependency     'rdf',             '>= 2.2', '< 4.0'
+  gem.add_development_dependency 'rdf-spec',        '>= 2.2', '< 4.0'
+  gem.add_development_dependency 'rdf-isomorphic',  '>= 2.0', '< 4.0'
+  gem.add_development_dependency 'rspec',           '~> 3.4'
+  gem.add_development_dependency 'rspec-its',       '~> 1.2'
   gem.add_development_dependency 'yard' ,           '~> 0.8'
 
   gem.post_install_message       = nil
