@@ -173,7 +173,8 @@ describe RDF::JSON::Reader do
     }.each do |test, (nt, json)|
       it "parses #{test}" do
         g = RDF::Graph.new << RDF::JSON::Reader.new(json)
-        expect(g).to be_equivalent_graph(nt)
+        ntg = RDF::Graph.new << RDF::NTriples::Reader.new(nt)
+        expect(g).to be_equivalent_graph(ntg)
       end
     end
   end
