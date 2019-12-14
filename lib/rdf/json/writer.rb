@@ -64,7 +64,7 @@ module RDF::JSON
     # @param  [RDF::Node] value
     # @param  [Hash{Symbol => Object}] options
     # @return [String]
-    def format_node(value, options = {})
+    def format_node(value, **options)
       value.to_rdf_json.to_json
     end
 
@@ -74,7 +74,7 @@ module RDF::JSON
     # @param  [RDF::URI] value
     # @param  [Hash{Symbol => Object}] options
     # @return [String]
-    def format_uri(value, options = {})
+    def format_uri(value, **options)
       value.to_rdf_json.to_json
     end
 
@@ -84,7 +84,7 @@ module RDF::JSON
     # @param  [RDF::Literal, String, #to_s] value
     # @param  [Hash{Symbol => Object}] options
     # @return [String]
-    def format_literal(value, options = {})
+    def format_literal(value, **options)
       case value
         when RDF::Literal then value.to_rdf_json.to_json
         else RDF::Literal.new(value).to_rdf_json.to_json

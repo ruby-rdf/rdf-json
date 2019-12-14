@@ -47,7 +47,7 @@ module RDF::JSON
     # @yield  [reader] `self`
     # @yieldparam  [RDF::Reader] reader
     # @yieldreturn [void] ignored
-    def initialize(input = $stdin, options = {}, &block)
+    def initialize(input = $stdin, **options, &block)
       super do
         if block_given?
           case block.arity
@@ -130,7 +130,7 @@ module RDF::JSON
     # @option options [Boolean] :intern (false)
     # @return [RDF::URI]
     # @since  0.3.0
-    def parse_uri(string, options = {})
+    def parse_uri(string, **options)
       uri = RDF::URI.send(intern = intern? && options[:intern] ? :intern : :new, string)
       uri.validate!     if validate?
       uri.canonicalize! if canonicalize? && !intern
