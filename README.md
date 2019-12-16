@@ -22,7 +22,7 @@ Documentation
 Dependencies
 ------------
 
-* [RDF.rb](http://rubygems.org/gems/rdf) (>= 1.1)
+* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.1)
 
 Installation
 ------------
