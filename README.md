@@ -5,7 +5,6 @@ This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
 
 * <http://github.com/ruby-rdf/rdf-json>
-* <http://blog.datagraph.org/2010/04/parsing-rdf-with-ruby>
 
 [![Gem Version](https://badge.fury.io/rb/rdf-json.png)](http://badge.fury.io/rb/rdf-json)
 [![Build Status](https://travis-ci.org/ruby-rdf/rdf-json.png)](https://travis-ci.org/ruby-rdf/rdf-json)
@@ -37,7 +36,7 @@ Download
 
 To get a local working copy of the development repository, do:
 
-    % git clone git://github.com/bendiken/rdf-json.git
+    % git clone git://github.com/ruby-rdf/rdf-json.git
 
 Alternatively, download the latest development version as a tarball as
 follows:
