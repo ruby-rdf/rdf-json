@@ -90,7 +90,7 @@
         "http://usefulinc.com/ns/doap#license": [
             {
                 "type": "uri",
-                "value": "https://unlicense.org/"
+                "value": "https://unlicense.org/1.0/"
             }
         ],
         "http://usefulinc.com/ns/doap#maintainer": [
