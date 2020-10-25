@@ -75,7 +75,9 @@ This repository uses [Git Flow](https://github.com/nvie/gitflow) to mange develo
   enough, be assured we will eventually add you in there.
 * Do note that in order for us to merge any non-trivial changes (as a rule
   of thumb, additions larger than about 15 lines of code), we need an
-  explicit [public domain dedication][PDD] on record from you.
+  explicit [public domain dedication][PDD] on record from you,
+  which you will be asked to agree to on the first commit to a repo within the organization.
+  Note that the agreement applies to all repos in the [Ruby RDF](https://github.com/ruby-rdf/) organization.
 
 ## License
 
@@ -86,4 +88,4 @@ see <http://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 [RDF/JSON]: http://www.w3.org/TR/2013/NOTE-rdf-json-20131107/
 [YARD]:             http://yardoc.org/
 [YARD-GS]:          http://rubydoc.info/docs/yard/file/docs/GettingStarted.md
-[PDD]:              http://lists.w3.org/Archives/Public/public-rdf-ruby/2010May/0013.html
+[PDD]:              https://unlicense.org/#unlicensing-contributions
