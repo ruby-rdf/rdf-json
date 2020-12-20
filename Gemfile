@@ -14,3 +14,8 @@ group :debug do
   gem "byebug",     platforms: :mri
   gem "ruby-debug", platforms: :jruby
 end
+
+group :test do
+  gem 'simplecov',  platforms: :mri
+  gem 'coveralls',  '~> 0.8', platforms: :mri
+end
