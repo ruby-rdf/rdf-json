@@ -95,10 +95,10 @@ module RDF::JSON
         when 'uri'
           parse_uri(object['value'])
         when 'literal'
-          literal = RDF::Literal.new(object['value'], {
-            :language => object['lang'],
-            :datatype => object['datatype'],
-          })
+          literal = RDF::Literal.new(object['value'],
+            language: object['lang'],
+            datatype: object['datatype'],
+            )
           literal.validate!     if validate?
           literal.canonicalize! if canonicalize?
           literal
