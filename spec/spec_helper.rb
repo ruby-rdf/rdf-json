@@ -4,7 +4,6 @@ $:.unshift File.dirname(__FILE__)
 require "bundler/setup"
 require 'rspec'
 require 'matchers'
-require 'rdf/json'
 require 'rdf/spec'
 require 'rdf/isomorphic'
 
@@ -18,7 +17,6 @@ end
 begin
   require 'simplecov'
   require 'simplecov-lcov'
-  require 'coveralls'
 
   SimpleCov::Formatter::LcovFormatter.config do |config|
     #Coveralls is coverage by default/lcov. Send info results
@@ -36,3 +34,4 @@ begin
 rescue LoadError => e
   STDERR.puts "Coverage Skipped: #{e.message}"
 end
+require 'rdf/json'
