@@ -31,6 +31,10 @@ describe RDF::JSON::Reader do
     readers.each { |reader| expect(reader).to eq RDF::JSON::Reader }
   end
 
+  it "should be returned by RDF::Reader.for" do
+    expect(RDF::Reader.for(:json)).to eq(RDF::JSON::Reader);
+  end
+
   context "when parsing subjects and predicates" do
     it "should parse blank nodes" do
       bnode = subject.parse_subject(input = '_:foobar')
