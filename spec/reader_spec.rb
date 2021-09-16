@@ -31,8 +31,8 @@ describe RDF::JSON::Reader do
     readers.each { |reader| expect(reader).to eq RDF::JSON::Reader }
   end
 
-  it "should be returned by RDF::Reader.for" do
-    expect(RDF::Reader.for(:json)).to eq(RDF::JSON::Reader);
+  it "should not be returned by RDF::Reader.for(:json)" do
+    expect(RDF::Reader.for(:json)).not_to eq(RDF::JSON::Reader);
   end
 
   context "when parsing subjects and predicates" do
@@ -88,7 +88,7 @@ describe RDF::JSON::Reader do
     end
   end
 
-  context "when parsing etc/doap.json" do
+  context "when parsing etc/doap.rj" do
     subject {RDF::JSON::Reader.new(File.read(doap))}
 
     it "should return the correct number of statements" do

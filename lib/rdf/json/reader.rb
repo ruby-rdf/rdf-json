@@ -6,21 +6,21 @@ module RDF::JSON
   #   require 'rdf/json'
   #
   # @example Obtaining an RDF/JSON reader class
-  #   RDF::Reader.for(:json)         #=> RDF::JSON::Reader
-  #   RDF::Reader.for("etc/doap.json")
-  #   RDF::Reader.for(:file_name      => "etc/doap.json")
-  #   RDF::Reader.for(:file_extension => "json")
-  #   RDF::Reader.for(:content_type   => "application/json")
+  #   RDF::Reader.for(:rj)         #=> RDF::JSON::Reader
+  #   RDF::Reader.for("etc/doap.rj")
+  #   RDF::Reader.for(:file_name      => "etc/doap.rj")
+  #   RDF::Reader.for(:file_extension => "rj")
+  #   RDF::Reader.for(:content_type   => "application/rj")
   #
   # @example Parsing RDF statements from an RDF/JSON file
-  #   RDF::JSON::Reader.open("etc/doap.json") do |reader|
+  #   RDF::JSON::Reader.open("etc/doap.rj") do |reader|
   #     reader.each_statement do |statement|
   #       puts statement.inspect
   #     end
   #   end
   #
   # @example Parsing RDF statements from an RDF/JSON string
-  #   data = StringIO.new(File.read("etc/doap.json"))
+  #   data = StringIO.new(File.read("etc/doap.rj"))
   #   RDF::JSON::Reader.new(data) do |reader|
   #     reader.each_statement do |statement|
   #       puts statement.inspect
