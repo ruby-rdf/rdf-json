@@ -1,12 +1,4 @@
 #!/usr/bin/env ruby
-$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), 'lib')))
-require 'rubygems'
-begin
-  require 'rakefile' # @see http://github.com/ruby-rdf/rakefile
-rescue LoadError => e
-end
-
-require 'rdf/json'
 
 namespace :gem do
   desc "Build the rdf-json-#{File.read('VERSION').chomp}.gem file"

@@ -4,11 +4,10 @@ RDF/JSON Support for RDF.rb
 This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
 
-* <http://github.com/ruby-rdf/rdf-json>
-* <http://blog.datagraph.org/2010/04/parsing-rdf-with-ruby>
-
-[![Gem Version](https://badge.fury.io/rb/rdf-json.png)](http://badge.fury.io/rb/rdf-json)
-[![Build Status](https://travis-ci.org/ruby-rdf/rdf-json.png)](https://travis-ci.org/ruby-rdf/rdf-json)
+[![Gem Version](https://badge.fury.io/rb/rdf-json.png)](https://badge.fury.io/rb/rdf-json)
+[![Build Status](https://github.com/ruby-rdf/rdf-json/workflows/CI/badge.svg?branch=develop)](https://github.com/ruby-rdf/rdf-json/actions?query=workflow%3ACI)
+[![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-json/badge.svg?branch=develop)](https://coveralls.io/github/ruby-rdf/rdf-json?branch=develop)
+[![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
 
 Documentation
 -------------
@@ -22,7 +21,7 @@ Documentation
 Dependencies
 ------------
 
-* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.1)
+* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.2)
 
 Installation
 ------------
@@ -37,7 +36,7 @@ Download
 
 To get a local working copy of the development repository, do:
 
-    % git clone git://github.com/bendiken/rdf-json.git
+    % git clone git://github.com/ruby-rdf/rdf-json.git
 
 Alternatively, download the latest development version as a tarball as
 follows:
@@ -76,7 +75,9 @@ This repository uses [Git Flow](https://github.com/nvie/gitflow) to mange develo
   enough, be assured we will eventually add you in there.
 * Do note that in order for us to merge any non-trivial changes (as a rule
   of thumb, additions larger than about 15 lines of code), we need an
-  explicit [public domain dedication][PDD] on record from you.
+  explicit [public domain dedication][PDD] on record from you,
+  which you will be asked to agree to on the first commit to a repo within the organization.
+  Note that the agreement applies to all repos in the [Ruby RDF](https://github.com/ruby-rdf/) organization.
 
 ## License
 
@@ -87,4 +88,4 @@ see <http://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 [RDF/JSON]: http://www.w3.org/TR/2013/NOTE-rdf-json-20131107/
 [YARD]:             http://yardoc.org/
 [YARD-GS]:          http://rubydoc.info/docs/yard/file/docs/GettingStarted.md
-[PDD]:              http://lists.w3.org/Archives/Public/public-rdf-ruby/2010May/0013.html
+[PDD]:              https://unlicense.org/#unlicensing-contributions

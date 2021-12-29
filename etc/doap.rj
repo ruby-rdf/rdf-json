@@ -6,12 +6,6 @@
                 "value": "http://xmlns.com/foaf/0.1/Person"
             }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "type": "uri",
-                "value": "http://datagraph.org/bendiken/foaf"
-            }
-        ],
         "http://xmlns.com/foaf/0.1/made": [
             {
                 "type": "uri",
@@ -42,16 +36,12 @@
             {
                 "type": "uri",
                 "value": "http://ar.to/"
-            },
-            {
-                "type": "uri",
-                "value": "http://blog.datagraph.org/"
             }
         ],
         "http://usefulinc.com/ns/doap#bug-database": [
             {
                 "type": "uri",
-                "value": "http://github.com/ruby-rdf/rdf-json/issues"
+                "value": "https://github.com/ruby-rdf/rdf-json/issues"
             }
         ],
         "http://usefulinc.com/ns/doap#created": [
@@ -100,7 +90,7 @@
         "http://usefulinc.com/ns/doap#license": [
             {
                 "type": "uri",
-                "value": "http://creativecommons.org/licenses/publicdomain/"
+                "value": "https://unlicense.org/1.0/"
             }
         ],
         "http://usefulinc.com/ns/doap#maintainer": [
@@ -115,7 +105,7 @@
                 "value": "RDF::JSON"
             }
         ],
-        "http://usefulinc.com/ns/doap#platform": [
+        "http://usefulinc.com/ns/doap#programming-language": [
             {
                 "type": "literal",
                 "value": "Ruby"
