@@ -84,7 +84,7 @@ This repository uses [Git Flow](https://github.com/nvie/gitflow) to mange develo
 This is free and unencumbered public domain software. For more information,
 see <http://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 
-[RDF.rb]:   http://www.rubydoc.info/github/ruby-rdf/rdf/
+[RDF.rb]:   https://ruby-rdf.github.io/rdf/
 [RDF/JSON]: http://www.w3.org/TR/2013/NOTE-rdf-json-20131107/
 [YARD]:             http://yardoc.org/
 [YARD-GS]:          http://rubydoc.info/docs/yard/file/docs/GettingStarted.md

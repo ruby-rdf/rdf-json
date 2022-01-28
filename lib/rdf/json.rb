@@ -30,7 +30,7 @@ module RDF
   #   RDF::Literal.new('true', :datatype => RDF::XSD.boolean).to_rdf_json.to_json
   #   RDF::Statement.new(s, p, o).to_rdf_json.to_json
   #
-  # @see http://www.rubydoc.info/github/ruby-rdf/rdf/
+  # @see https://ruby-rdf.github.io/rdf/
   # @see http://n2.talis.com/wiki/RDF_JSON_Specification
   # @see http://en.wikipedia.org/wiki/JSON
   #
