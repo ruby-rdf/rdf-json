@@ -14,7 +14,9 @@ module RDF::JSON
   #
   # @see http://n2.talis.com/wiki/RDF_JSON_Specification
   class Format < RDF::Format
-    content_type     'application/rdf+json', :extension => :rj
+    content_type     'application/rdf+json',
+                     extension: :rj,
+                     uri: 'http://www.w3.org/ns/formats/RDF_JSON'
     content_encoding 'utf-8'
 
     reader { RDF::JSON::Reader }
