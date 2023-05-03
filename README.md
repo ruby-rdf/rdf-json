@@ -4,7 +4,7 @@ RDF/JSON Support for RDF.rb
 This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
 
-[![Gem Version](https://badge.fury.io/rb/rdf-json.png)](https://badge.fury.io/rb/rdf-json)
+[![Gem Version](https://badge.fury.io/rb/rdf-json.svg)](https://badge.fury.io/rb/rdf-json)
 [![Build Status](https://github.com/ruby-rdf/rdf-json/workflows/CI/badge.svg?branch=develop)](https://github.com/ruby-rdf/rdf-json/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-json/badge.svg?branch=develop)](https://coveralls.io/github/ruby-rdf/rdf-json?branch=develop)
 [![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
