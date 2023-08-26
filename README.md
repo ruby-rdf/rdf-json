@@ -1,5 +1,4 @@
-RDF/JSON Support for RDF.rb
-===========================
+# RDF/JSON Support for RDF.rb
 
 This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
@@ -9,8 +8,7 @@ This is an [RDF.rb][] extension that adds support for parsing/serializing
 [![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-json/badge.svg?branch=develop)](https://coveralls.io/github/ruby-rdf/rdf-json?branch=develop)
 [![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
 
-Documentation
--------------
+## Documentation
 
 * {RDF::JSON}
   * {RDF::JSON::Format}
@@ -18,21 +16,18 @@ Documentation
   * {RDF::JSON::Writer}
   * {RDF::JSON::Extensions}
 
-Dependencies
-------------
+## Dependencies
 
-* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.2)
+* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.3)
 
-Installation
-------------
+## Installation
 
 The recommended installation method is via [RubyGems](http://rubygems.org/).
 To install the latest official release of the `RDF::JSON` gem, do:
 
     % [sudo] gem install rdf-json
 
-Download
---------
+### Download
 
 To get a local working copy of the development repository, do:
 
@@ -43,18 +38,15 @@ follows:
 
     % wget http://github.com/ruby-rdf/rdf-json/tarball/master
 
-Mailing List
-------------
+## Mailing List
 
 * <http://lists.w3.org/Archives/Public/public-rdf-ruby/>
 
-Author
-------
+## Author
 
 * [Arto Bendiken](http://github.com/ruby-rdf) - <http://ar.to/>
 
-Contributors
-------------
+## Contributors
 
 Refer to the accompanying {file:CREDITS} file.
 
