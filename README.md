@@ -1,16 +1,14 @@
-RDF/JSON Support for RDF.rb
-===========================
+# RDF/JSON Support for RDF.rb
 
 This is an [RDF.rb][] extension that adds support for parsing/serializing
 [RDF/JSON][], a simple JSON-based RDF serialization format.
 
-[![Gem Version](https://badge.fury.io/rb/rdf-json.png)](https://badge.fury.io/rb/rdf-json)
+[![Gem Version](https://badge.fury.io/rb/rdf-json.svg)](https://badge.fury.io/rb/rdf-json)
 [![Build Status](https://github.com/ruby-rdf/rdf-json/workflows/CI/badge.svg?branch=develop)](https://github.com/ruby-rdf/rdf-json/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-json/badge.svg?branch=develop)](https://coveralls.io/github/ruby-rdf/rdf-json?branch=develop)
 [![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
 
-Documentation
--------------
+## Documentation
 
 * {RDF::JSON}
   * {RDF::JSON::Format}
@@ -18,21 +16,18 @@ Documentation
   * {RDF::JSON::Writer}
   * {RDF::JSON::Extensions}
 
-Dependencies
-------------
+## Dependencies
 
-* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.2)
+* [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.3)
 
-Installation
-------------
+## Installation
 
 The recommended installation method is via [RubyGems](http://rubygems.org/).
 To install the latest official release of the `RDF::JSON` gem, do:
 
     % [sudo] gem install rdf-json
 
-Download
---------
+### Download
 
 To get a local working copy of the development repository, do:
 
@@ -43,18 +38,15 @@ follows:
 
     % wget http://github.com/ruby-rdf/rdf-json/tarball/master
 
-Mailing List
-------------
+## Mailing List
 
 * <http://lists.w3.org/Archives/Public/public-rdf-ruby/>
 
-Author
-------
+## Author
 
 * [Arto Bendiken](http://github.com/ruby-rdf) - <http://ar.to/>
 
-Contributors
-------------
+## Contributors
 
 Refer to the accompanying {file:CREDITS} file.
 
@@ -84,7 +76,7 @@ This repository uses [Git Flow](https://github.com/nvie/gitflow) to mange develo
 This is free and unencumbered public domain software. For more information,
 see <http://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 
-[RDF.rb]:   http://www.rubydoc.info/github/ruby-rdf/rdf/
+[RDF.rb]:   https://ruby-rdf.github.io/rdf/
 [RDF/JSON]: http://www.w3.org/TR/2013/NOTE-rdf-json-20131107/
 [YARD]:             http://yardoc.org/
 [YARD-GS]:          http://rubydoc.info/docs/yard/file/docs/GettingStarted.md

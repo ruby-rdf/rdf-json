@@ -16,4 +16,12 @@ describe RDF::JSON::Format do
     ]
     formats.each { |format| expect(format).to eq RDF::JSON::Format }
   end
+
+  describe "#to_sym" do
+    specify {expect(described_class.to_sym).to eq :rj}
+  end
+
+  describe "#to_uri" do
+    specify {expect(described_class.to_uri).to eq RDF::URI('http://www.w3.org/ns/formats/RDF_JSON')}
+  end
 end
