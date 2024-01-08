@@ -20,6 +20,10 @@ This is an [RDF.rb][] extension that adds support for parsing/serializing
 
 * [RDF.rb](http://rubygems.org/gems/rdf) (~> 3.3)
 
+## Change Log
+
+See [Release Notes on GitHub](https://github.com/ruby-rdf/rdf-json/releases)
+
 ## Installation
 
 The recommended installation method is via [RubyGems](http://rubygems.org/).
